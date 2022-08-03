@@ -1,0 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+ <% 
+ 	String imsiInfo01= "홍길동/90/80/70";
+ 	String imsiInfo02= "이성순/99/88/77";
+ 	String imsiInfo03= "장천용/100/100/100";
+ 	
+ 	
+ 	String memo = imsiInfo01 + "|" +imsiInfo02 + "|" + imsiInfo03;
+ 	out.print(memo);
+ %>   
+    
+ 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+  
+</body>
+</html>

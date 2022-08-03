@@ -1,0 +1,55 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table border="1">
+		
+		<%
+		int sum = 0; 
+		for (int i = 1; i < 10; i++) {
+		%>
+		<tr>
+			<td width="50px">
+				<%=i%>
+			</td>
+			<td width="50px">
+			  <%= sum+=i %>
+			</td>
+		</tr>
+			
+		<%
+		}
+		%>
+	</table>
+	<hr>
+	<table border ="1" width= "300px">
+	 <tr>
+	 	<td>순번</td>
+	 	<td>제목</td>
+	 	<td>작성자</td>
+	 	<td>작성일</td>
+	 	<td>조회수</td>
+	 </tr>
+	 <tr>
+	 	<td>1</td>
+	 	<td>연습입니다.</td>
+	 	<td>홍길동</td>
+	 	<td>2022-08-02</td>
+	 	<td>21</td>
+	 </tr>
+	</table>
+	
+	
+	
+	
+	
+	
+	
+	
+</body>
+</html>

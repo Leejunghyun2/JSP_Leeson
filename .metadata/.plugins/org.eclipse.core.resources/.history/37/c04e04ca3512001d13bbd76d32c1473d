@@ -1,0 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+   request.setCharacterEncoding("UTF-8");
+
+	String name = request.getParameter("name");
+	String age = request.getParameter("age");
+	String gender = request.getParameter("gender");
+
+%>
+ddd
+<form name = "examForm05">
+	<input type="text" name="name" hidden="hidden" value="<%=name %>">
+	<input type="text" name="age" hidden="hidden"><%=age %>
+	<input type="text" name="gender" hidden="hidden"><%=gender %>
+</form>
+
+<script>
+function move(){
+	document.examForm05.action = "exam05Result.jsp";
+	document.examForm05.method = "post";
+	document.examForm06.submit();
+}
+move();
+</script>

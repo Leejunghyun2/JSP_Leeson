@@ -1,0 +1,56 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+<%
+String imsiInfo01 = "홍길동/90/80/70";
+String imsiInfo02 = "이성순/99/88/77";
+String imsiInfo03 = "장천용/100/100/100";
+
+String[] array = new String[3];
+array[0] = imsiInfo01;
+array[1] = imsiInfo02;
+array[2] = imsiInfo03;
+ int kor = 0;
+ int eng = 0;
+ int mat = 0;
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test07.jsp</title>
+</head>
+<body>
+	<h2>test07.jsp</h2>
+	<table border="1">
+		<tr>
+			<td>이름</td>
+			<td>국어</td>
+			<td>영어</td>
+			<td>수학</td>
+		</tr>
+		<%
+		for (int i = 0; i < array.length; i++) {
+		%>
+		<tr>
+			<%
+			String[] imsi = array[i].split("/");
+			kor += Integer.parseInt(imsi[1]);
+			eng += Integer.parseInt(imsi[2]);
+			mat += Integer.parseInt(imsi[3]);
+			for (int j = 0; j < imsi.length; j++) {
+			%>
+			<td><%=imsi[j]%></td>
+			<%
+			}
+			%>
+		</tr>
+		<%
+		}
+		%>
+	</table>
+	<hr>
+		국어총점 :<%=kor %> 영어총점 :<%=eng %> 수학총점<%=mat %>
+
+</body>
+</html>

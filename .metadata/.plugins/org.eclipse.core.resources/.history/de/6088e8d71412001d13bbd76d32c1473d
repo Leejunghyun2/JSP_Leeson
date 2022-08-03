@@ -1,0 +1,34 @@
+<%@page import="java.util.ArrayList"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%
+    String name1 = "홍길동";
+    int kor1 = 90;
+    int eng1 = 80;
+    int mat1 = 70;
+    
+    String name2 = "홍길동";
+    int kor2 = 99;
+    int eng2 = 88;
+    int mat2 = 77;
+    
+    String name3 = "홍길동";
+    int kor3 = 100;
+    int eng3 = 100;
+    int mat3 = 100;
+    
+    ArrayList list = new ArrayList();
+    list.add(name1+","+kor1+","+eng1+","+mat1);
+    out.print(list.get(0));
+    %> 
+   
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>

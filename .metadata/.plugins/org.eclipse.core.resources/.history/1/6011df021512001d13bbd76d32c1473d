@@ -1,0 +1,48 @@
+<%@page import="java.util.ArrayList"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%
+    String name1 = "홍길동";
+    int kor1 = 90;
+    int eng1 = 80;
+    int mat1 = 70;
+    String imsi1 = name1+"|"+kor1+"|"+eng1+"|"+mat1;
+    String name2 = "홍길동";
+    int kor2 = 99;
+    int eng2 = 88;
+    int mat2 = 77;
+    String imsi2 = name2+"|"+kor2+"|"+eng2+"|"+mat2;
+    String name3 = "홍길동";
+    int kor3 = 100;
+    int eng3 = 100;
+    int mat3 = 100;
+    String imsi3 = name3+"|"+kor3+"|"+eng3+"|"+mat3;
+    ArrayList<String> list = new ArrayList<String>();
+     list.add(imsi1);
+     list.add(imsi2);
+     list.add(imsi3);
+     String[] imsi;
+     out.print(list.get(0));
+    %> 
+   
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table border="1">
+	   <%for(int i=0;i<list.size();i++) { 
+	   	 imsi = list.get(i).split("[|]");%>
+	 	<tr>     
+		 <%for(int j=0;j<imsi.length;j++) { %>
+			<td><%=imsi[0] %></td>
+		 <%} %></tr>
+		 <%} %>
+	</table>
+	
+	
+
+</body>
+</html>

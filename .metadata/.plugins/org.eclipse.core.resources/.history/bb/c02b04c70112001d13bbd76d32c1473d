@@ -1,0 +1,84 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table border="1">
+		
+		<%
+		int sum = 0; 
+		for (int i = 1; i < 10; i++) {
+		%>
+		<tr>
+			<td width="50px">
+				<%=i%>
+			</td>
+			<td width="50px">
+			  <%= sum+=i %>
+			</td>
+		</tr>
+			
+		<%
+		}
+		%>
+	</table>
+	<hr>
+	<table border ="1" width= "700px" align="center">
+	 <tr bgcolor ="lightgray">
+	 	<th>순번</th>
+	 	<th>제목</th>
+	 	<th>작성자</th>
+	 	<th>작성일</th>
+	 	<th>조회수</th>
+	 </tr>
+	 <% for(int i = 1; i <=10; i++){ %>
+	 <tr <%if(i%2 == 0){%>bgcolor = "gray"<% } %>>
+	 	<td><%=i %></td>
+	 	<td>연습입니다.</td>
+	 	<td>홍길동</td>
+	 	<td>2022-08-02</td>
+	 	<td>21</td>
+	 </tr>
+	 <% } %>
+	
+	</table>
+	<hr>
+	<table border ="1" width= "700px" align="center">
+	 <tr bgcolor ="lightgray">
+	 	<th>순번</th>
+	 	<th>제목</th>
+	 	<th>작성자</th>
+	 	<th>작성일</th>
+	 	<th>조회수</th>
+	 </tr>
+	 <%
+	     int  a = 0;
+	     while(true){
+	 %>
+	 <tr>
+	 	<td><%=a+1 %></td>
+	 	<td>연습입니다.</td>
+	 	<td>홍길동</td>
+	 	<td>2022-08-02</td>
+	 	<td>21</td>
+	 </tr>
+	 <%
+	     if(a==5){
+	    	 break;
+	     }
+	     a++;
+	     }
+	 %>
+	</table>
+	
+	
+	
+	
+	
+	
+</body>
+</html>
