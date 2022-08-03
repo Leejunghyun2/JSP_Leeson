@@ -12,6 +12,8 @@
 	String email = request.getParameter("email");
 	String addr = request.getParameter("address");
 	
+	String info1 = "";
+	
 	String id2 = request.getParameter("id2");
 	String pw2 = request.getParameter("pw2");
 	String name2 = request.getParameter("name2");
