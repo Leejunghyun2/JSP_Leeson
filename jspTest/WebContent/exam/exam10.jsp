@@ -5,7 +5,7 @@
      String a_ = request.getParameter("gugu");
      int a = 0;
      if(a_ == null){
-       
+         out.print(a_);
      } else{
     	 a = Integer.parseInt(a_);
      }

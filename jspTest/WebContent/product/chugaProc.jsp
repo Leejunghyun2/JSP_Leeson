@@ -8,16 +8,16 @@
 <%
   	request.setCharacterEncoding("UTF-8");
 	
-	String arg1 = request.getParameter("arg1");
-	String id = request.getParameter("id");
-	String pw = request.getParameter("pw");
-	String name = request.getParameter("name");
-	String phone = request.getParameter("tel");
-	String email = request.getParameter("email");
-	String addr = request.getParameter("address");
+	String productCode = request.getParameter("productCode");
+	String productName = request.getParameter("productName");
+	String productPrice_ = request.getParameter("productPrice");
+	String productContent = request.getParameter("productContent");
+	String productCategory = request.getParameter("productCategory");
+	String vendor = request.getParameter("vendor");
+	String regiDate = request.getParameter("regiDate");
+	int productPrice = Integer.parseInt(productPrice_);
 	
-	
-	if(id == null || id.equals("")){
+	if(productName == null || productName.equals("")){
 		
 %>
  	<script>
@@ -43,15 +43,14 @@
 		conn = DriverManager.getConnection(dbUrl,dbId,dbPw);
 		System.out.print("\n db 접속성공");
 		//---------------------------------------
-		String sql = "insert into member(id, passwd, name, phone, email, address, regidate)" + 
-					 " values(?,?,?,?,?,?,sysdate)";
+		String sql = "insert into product(productCode, productName, productPrice, productContent,productCategory,vendor,regiDate)" + 
+					 " values(seq_product.nextval,?,?,?,?,?,sysdate)";
 		pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, id);
-		pstmt.setString(2, pw);
-		pstmt.setString(3, name);
-		pstmt.setString(4, phone);
-		pstmt.setString(5, email);
-		pstmt.setString(6, addr);
+		pstmt.setString(1, productName);
+		pstmt.setInt(2, productPrice);
+		pstmt.setString(3, productContent);
+		pstmt.setString(4, productCategory);
+		pstmt.setString(5, vendor);
 		result = pstmt.executeUpdate();
 		if(result > 0){
 			System.out.println("\n== INSERT Success ==");
@@ -77,9 +76,3 @@
 	out.print("end");
 	
 %>
-    
-    
-    
-    
-    
-    

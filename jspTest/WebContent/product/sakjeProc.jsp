@@ -9,13 +9,9 @@
 <%@ include file="../include/inc_dbInfo.jsp" %>
 <%
   	request.setCharacterEncoding("UTF-8");
-	
-	String arg1 = request.getParameter("arg1");
- 	if(arg1 == null || arg1.trim().equals("")){
- 		response.sendRedirect("list.jsp");
- 	} 
+
 	//response.sendRedirect("list.jsp");//jsp로 바로 넘길때
-	String passwd = request.getParameter("passwd");
+	String productCode = request.getParameter("productCode");
 	
 	
 	
@@ -32,10 +28,9 @@
 		System.out.print("\n db 접속성공");
 		//---------------------------------------
 		//---------------------------------------
-		String sql = "delete from member where id = ? and passwd =?";
+		String sql = "delete from product where productCode = ?";
 		pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, arg1);
-		pstmt.setString(2, passwd);
+		pstmt.setString(1, productCode);
 		result = pstmt.executeUpdate();
 		if(result > 0){
 			out.print("<script>");
@@ -44,7 +39,7 @@
 			out.print("</script>");
 		}else{
 			out.print("<script>");
-			out.print("alert('실패:존재하지않거나 비밀번호가 틀립니다.');");
+			out.print("alert('실패');");
 			out.print("history.back();");
 			out.print("</script>");
 		}

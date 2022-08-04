@@ -1,7 +1,6 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<% String arg1 = "Aaa"; %>
 	
 <!DOCTYPE html>
 <html>
@@ -20,41 +19,33 @@
 		<!-- main 시작 -->
 		<tr>
 			<td height="300px" align="center">
-				<h2>회원등록</h2>
+				<h2>상품등록</h2>
 				<form name=chugaForm>
 					<table border="1">
 						<tr>
-							<td>아이디 :</td>
-							<td><input type="text" name="id"></td>
+							<td>상품이름 :</td>
+							<td><input type="text" name="productName"></td>
 						</tr>
 						<tr>
-							<td>비밀번호 :</td>
-							<td><input type="password" name="pw"></td>
+							<td>상품가격 :</td>
+							<td><input type="text" name="productPrice"></td>
 						</tr>
 						<tr>
-							<td>비밀번호확인 :</td>
-							<td><input type="password" name="pw2"></td>
+							<td>상품설명 :</td>
+							<td><input type="text" name="productContent"></td>
 						</tr>			
 			
 						<tr>
-							<td>이름 :</td>
-							<td><input type="text" name="name"></td>
+							<td>상품종류 :</td>
+							<td><input type="text" name="productCategory"></td>
 						</tr>
 						<tr>
-							<td>전화번호 :</td>
-							<td><input type="tel" name="tel"></td>
-						</tr>
-						<tr>
-							<td>이메일s :</td>
-							<td><input type="email" name="email"></td>
-						</tr>
-						<tr>
-							<td>주소 :</td>
-							<td><input type="text" name="address"></td>
+							<td>상품회사 :</td>
+							<td><input type="text" name="vendor"></td>
 						</tr>
 						<tr>
 							<td colspan="2" style="text-align: center"><button
-									type="button" onclick="join();">가입하기</button></td>
+									type="button" onclick="join();">등록하기</button></td>
 						</tr>
 					</table>
 				</form>
@@ -71,7 +62,7 @@
 	</table>
   <script>
     function join(){
-    	var chuga = document.chugaForm;
+    	 var chuga = document.chugaForm;
     	chuga.action = "chugaProc.jsp";
     	chuga.method = "post";
     	chuga.submit();
