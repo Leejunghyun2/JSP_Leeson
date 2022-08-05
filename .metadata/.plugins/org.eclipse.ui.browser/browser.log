@@ -30,3 +30,14 @@
 8월 04, 2022 09:16:58.293 [2148:1216:0804/091658.293:ERROR:device_event_log_impl.cc(214)] [09:16:58.292] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
 8월 04, 2022 09:17:55.385 [2148:11896:0804/091755.384:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
 8월 04, 2022 14:17:55.925 [2148:12224:0804/141755.924:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+
+8월 05, 2022 11:35:06.178 NEW SESSION
+8월 05, 2022 11:35:06.178 [9620:10380:0805/113506.177:ERROR:google_update_settings.cc(236)] Failed opening key Software\Google\Update\ClientStateMedium\{8A69D345-D564-463c-AFF1-A69D9E530F96} to set usagestats; result: 5
+8월 05, 2022 11:35:09.220 [9620:6232:0805/113509.220:ERROR:device_event_log_impl.cc(214)] [11:35:09.220] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+8월 05, 2022 11:35:09.221 [9620:6232:0805/113509.221:ERROR:device_event_log_impl.cc(214)] [11:35:09.221] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+8월 05, 2022 11:36:06.344 [9620:13296:0805/113606.343:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+8월 05, 2022 12:05:06.625 [12804:992:0805/120506.625:ERROR:google_update_settings.cc(236)] Failed opening key Software\Google\Update\ClientStateMedium\{8A69D345-D564-463c-AFF1-A69D9E530F96} to set usagestats; result: 5
+8월 05, 2022 12:05:10.820 [12804:8788:0805/120510.820:ERROR:device_event_log_impl.cc(214)] [12:05:10.820] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+8월 05, 2022 12:05:10.824 [12804:8788:0805/120510.824:ERROR:device_event_log_impl.cc(214)] [12:05:10.823] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+8월 05, 2022 12:06:06.756 [12804:9596:0805/120606.755:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+8월 05, 2022 17:06:07.260 [12804:10852:0805/170607.259:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater

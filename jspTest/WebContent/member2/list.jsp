@@ -36,7 +36,11 @@ try {
 	}
 	
 	
-
+	if (result > 0) {
+		System.out.println("\n== SELECT Success ==");
+	} else {
+		System.out.println("\n== SELECT Fail ==");
+	}
 
 	//---------------------------------------
 } catch (Exception e) {
@@ -56,23 +60,7 @@ try {
 %>
 
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>회원등록</title>
-</head>
-<body>
-	<table border="1" width="80%" align="center">
-		<tr>
-			<!-- header 시작 -->
-			<td height = "100px" align="center">
-					<%@ include file="../include/inc_menu.jsp"%>
-			</td>
-		</tr>
-		<!-- main 시작 -->
-		<tr>
-			<td height="300px" align="center">
+
 				<h2>회원목록</h2>
 					<table border="1" align="center">
 						<tr>
@@ -89,7 +77,7 @@ try {
 					        String[] tmp = list.get(i).split("/");%>
 					    <tr>
 					      <td><%=totalCounter %></td>
-					      <td><a href="#" onclick="move('view.jsp','<%=tmp[0]%>');"> <%=tmp[0] %> </a></td>
+					      <td><a href="#" onclick="move('member2_view','<%=tmp[0]%>');"> <%=tmp[0] %> </a></td>
 					      <td><%=tmp[2] %></td>
 					      <td><%=tmp[3] %></td>
 					      <td><%=tmp[5] %></td>
@@ -105,25 +93,16 @@ try {
 					</table>
 					<div width: 70%; margin-top : "10px;" align="center">
 						|
-						<a href="#" onclick="move('list.jsp');">목록</a> 
+						<a href="#" onclick="move('member2_list','');">목록</a> 
 						| 
-						<a href="#" onclick="move('chuga.jsp');">등록</a> 
+						<a href="#" onclick="move('member2_chuga','');">등록</a> 
 						|
 
 					</div>
-			</td>
-		</tr>
-		<!-- footer 시작 -->
-		<tr>
-			<td height="100px" align="center">
-				<%@ include file="../include/inc_bottom.jsp"%>
-			</td>
-		</tr>
-
-	</table>
+		
 	<script>
 		function move(value1, value2) {
-			location.href = value1 + "?id=" + value2;
+			location.href = "main.jsp?menuGubun="+value1+"&id="+value2;
 		}
 	</script>
 

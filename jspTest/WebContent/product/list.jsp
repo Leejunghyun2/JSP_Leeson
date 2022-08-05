@@ -9,7 +9,6 @@
 	pageEncoding="UTF-8"%>
 	<%@ include file="../include/inc_dbInfo.jsp" %>
 <%
-  	request.setCharacterEncoding("UTF-8");
 	
 	Connection conn = null;
 	PreparedStatement pstmt = null;

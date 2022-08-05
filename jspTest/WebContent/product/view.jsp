@@ -11,7 +11,7 @@
   	request.setCharacterEncoding("UTF-8");
 	
 	String productCode = request.getParameter("productCode");
- 	if(productName == null || productName.trim().equals("")){
+ 	if(productCode == null || productCode.trim().equals("")){
  		response.sendRedirect("list.jsp");
  	} 
 	//response.sendRedirect("list.jsp");//jsp로 바로 넘길때

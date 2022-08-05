@@ -12,7 +12,6 @@
 	
 	String arg1 = request.getParameter("id");
  	if(arg1 == null || arg1.trim().equals("")){
- 		response.sendRedirect("list.jsp");
  	} 
 	//response.sendRedirect("list.jsp");//jsp로 바로 넘길때
 	Connection conn = null;

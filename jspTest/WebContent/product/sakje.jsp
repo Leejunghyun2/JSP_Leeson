@@ -10,9 +10,8 @@
 <%
   	request.setCharacterEncoding("UTF-8");
 	
-	String productName = request.getParameter("productName");
-	String productCode = "";
- 	if(productName == null || productName.trim().equals("")){
+	String productCode = request.getParameter("productCode");
+ 	if(productCode == null || productCode.trim().equals("")){
  		response.sendRedirect("list.jsp");
  	} 
 	//response.sendRedirect("list.jsp");//jsp로 바로 넘길때
@@ -27,11 +26,12 @@
 		conn = DriverManager.getConnection(dbUrl,dbId,dbPw);
 		System.out.print("\n db 접속성공");
 		//---------------------------------------
-		String sql = "select * from product where productName = ?";
+		String sql = "select * from product where productCode = ?";
 		pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, productName);
+		pstmt.setString(1, productCode);
 		rs = pstmt.executeQuery();
 		if(rs.next()){
+			String productName = rs.getString("productName");
 			String productPrice = rs.getString("productPrice");
 			String productContent = rs.getString("productContent");
 			String productCategory = rs.getString("productCategory");
