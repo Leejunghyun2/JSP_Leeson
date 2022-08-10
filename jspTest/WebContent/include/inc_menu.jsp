@@ -42,9 +42,8 @@
        <a href="../useBean/chuga.jsp">useBean</a>
 	<%} %>
 	|
-	<a href="../main/main.jsp?menuGubun=member2_list">회원관리2(list)</a>
+	<a href="../main/main.jsp?menuGubun=member2_list">회원관리2</a>
 	|
-	
-	
-	<a href="../main/main.jsp?menuGubun=product2_list">상품관리2</a>
+	<a href="../memberBasic/list.jsp">회원관리(Basic)</a>
 	|
+	<a href="../memberBasic/chuga.jsp">회원추가(Basic)</a>
