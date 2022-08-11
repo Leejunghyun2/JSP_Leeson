@@ -46,4 +46,4 @@
 	|
 	<a href="../memberBasic/list.jsp">회원관리(Basic)</a>
 	|
-	<a href="../memberBasic/chuga.jsp">회원추가(Basic)</a>
+	<a href="../book/list.jsp">도서관리</a>

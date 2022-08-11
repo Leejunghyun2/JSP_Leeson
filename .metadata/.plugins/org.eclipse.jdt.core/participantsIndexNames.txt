@@ -35,5 +35,7 @@ C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\14118
 \jspTest\src
 C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3894010644.index
 \jspTest\src
+C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2509784306.index
+\jspTest\src
 C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2248317391.index
 \jspTest\src
