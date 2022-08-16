@@ -2,11 +2,14 @@
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="java.sql.DriverManager"/>
     <fullyQualifiedTypeName name="memberBasic.MemberBasicDTO"/>
-    <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="book.model.dto.BookDTO"/>
-    <fullyQualifiedTypeName name="config.DB"/>
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="config.DB"/>
+    <fullyQualifiedTypeName name="bookAuthor.model.dto.BookAuthorDTO"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="bookProfile.model.dto.BookProfileDTO"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="bookInfo.model.dto.BookInfoDTO"/>
 </qualifiedTypeNameHistroy>
