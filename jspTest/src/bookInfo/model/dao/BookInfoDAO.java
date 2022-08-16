@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import bookAuthor.model.dto.BookAuthorDTO;
 import bookInfo.model.dto.BookInfoDTO;
 import config.DB;
 
@@ -18,13 +19,16 @@ public class BookInfoDAO {
 		conn = DB.dbconn();
 		ArrayList<BookInfoDTO> list = new ArrayList<>();
 		try {
-			String sql = "select * from " + tableName_1;
+			String sql = "select b.infoNo, b.subject, b.authorNo, a.author ,b.profileNo, b.created "
+					+ " from bookInfo b, bookAuthor a"
+					+ " where b.authorNo=a.authorNo";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				BookInfoDTO resultDto = new BookInfoDTO();
 				resultDto.setInfoNo(rs.getInt("infoNo"));
 				resultDto.setSubject(rs.getString("subject"));
+				resultDto.setAuthor(rs.getString("author"));
 				resultDto.setAuthorNo(rs.getInt("authorNo"));
 				resultDto.setProfileNo(rs.getInt("profileNo"));
 				resultDto.setCreated(rs.getDate("created"));

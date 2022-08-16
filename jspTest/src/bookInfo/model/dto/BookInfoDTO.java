@@ -6,8 +6,23 @@ public class BookInfoDTO {
 	private int infoNo;
 	private String subject;
 	private int authorNo;
+	private String author;
 	private int profileNo;
+	private String profile;
 	private Date created;
+	
+	public String getAuthor() {
+		return author;
+	}
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+	public String getProfile() {
+		return profile;
+	}
+	public void setProfile(String profile) {
+		this.profile = profile;
+	}
 	public int getInfoNo() {
 		return infoNo;
 	}
