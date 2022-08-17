@@ -19,9 +19,9 @@ public class BookInfoDAO {
 		conn = DB.dbconn();
 		ArrayList<BookInfoDTO> list = new ArrayList<>();
 		try {
-			String sql = "select b.infoNo, b.subject, b.authorNo, a.author ,b.profileNo, b.created "
-					+ " from bookInfo b, bookAuthor a"
-					+ " where b.authorNo=a.authorNo";
+			String sql = "select b.infoNo, b.subject, b.authorNo, a.author ,b.profileNo, c.profile, b.created";
+				   sql += " from bookInfo b, bookAuthor a, bookProfile c";
+				   sql += " where b.authorNo=a.authorNo and b.profileNo = c.profileNo";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
@@ -30,6 +30,7 @@ public class BookInfoDAO {
 				resultDto.setSubject(rs.getString("subject"));
 				resultDto.setAuthor(rs.getString("author"));
 				resultDto.setAuthorNo(rs.getInt("authorNo"));
+				resultDto.setProfile(rs.getString("profile"));
 				resultDto.setProfileNo(rs.getInt("profileNo"));
 				resultDto.setCreated(rs.getDate("created"));
 				list.add(resultDto);

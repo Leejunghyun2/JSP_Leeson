@@ -14,16 +14,16 @@
 비밀번호 <input type="password" name="passwd"><br>
 이름 <input type="text" name="name"><br>
 주소 
+
+<br>
+<button type="submit">확인</button>
+</form> 
+ 
 <input type="text" id="sample6_postcode" placeholder="우편번호" name="post_1">
 <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
 <input type="text" id="sample6_address" placeholder="주소" name="post_2"><br>
 <input type="text" id="sample6_detailAddress" placeholder="상세주소" name="post_3">
 <input type="text" id="sample6_extraAddress" placeholder="참고항목" name="post_4">
-<br>
-<button type="submit">확인</button>
-</form> 
- 
-
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
     function sample6_execDaumPostcode() {

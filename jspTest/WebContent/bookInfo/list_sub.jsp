@@ -16,9 +16,8 @@
 		<tr>
 			<td>순번</td>
 			<td>제목</td>
-			<td>저자번호</td>
 			<td>저자</td>
-			<td>분류번호</td>
+			<td>분류</td>
 			<td>등록일</td>
 			<td>비고</td>
 		</tr>
@@ -30,15 +29,15 @@
 			String subject = dto.getSubject();
 			int authorNo = dto.getAuthorNo();
 			String author = dto.getAuthor();
+			String profile = dto.getProfile();
 			int profileNo = dto.getProfileNo();
 			Date created = dto.getCreated();
 		%>
 		<tr>
 			<td><%=totalRecord-- %></td>
 			<td><%=subject %></td>
-			<td><%=authorNo %></td>
 			<td><%=author %></td>
-			<td><%=profileNo %></td>
+			<td><%=profile %></td>
 			<td><%=created %></td>
 			<td><a href="#" onclick="move('sujung.jsp','<%=infoNo%>')">[수정]</a>
 			
