@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.sql.DriverManager"/>
     <fullyQualifiedTypeName name="memberBasic.MemberBasicDTO"/>
     <fullyQualifiedTypeName name="book.model.dto.BookDTO"/>
     <fullyQualifiedTypeName name="bookProfile.model.dto.BookProfileDTO"/>
     <fullyQualifiedTypeName name="bookInfo.model.dto.BookInfoDTO"/>
     <fullyQualifiedTypeName name="bookAuthor.model.dto.BookAuthorDTO"/>
-    <fullyQualifiedTypeName name="java.sql.Date"/>
-    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
-    <fullyQualifiedTypeName name="java.sql.Connection"/>
-    <fullyQualifiedTypeName name="config.DB"/>
     <fullyQualifiedTypeName name="haksaMember.model.dto.HaksaMemberDTO"/>
     <fullyQualifiedTypeName name="haksaSihum.model.dto.HaksaSihumDTO"/>
     <fullyQualifiedTypeName name="haksaSungjuk.model.dto.HaksaSungjukDTO"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.lang.Character"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="member.model.dto.MemberDTO"/>
+    <fullyQualifiedTypeName name="java.sql.DriverManager"/>
+    <fullyQualifiedTypeName name="config.DB"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
 </qualifiedTypeNameHistroy>
