@@ -25,6 +25,7 @@
 	if(juso4 == null || juso4.trim().equals("")){
 		juso4 = "-";
 	}
+	String attachInfo = "-";
 	
 	MemberDTO dto = new MemberDTO();
 	dto.setId(id);
@@ -38,6 +39,8 @@
 	dto.setJuso3(juso3);
 	dto.setJuso4(juso4);
 	dto.setGrade(grade);
+	dto.setAttachInfo(attachInfo);
+	
 	
 	MemberDAO dao = new MemberDAO();
 	int result = dao.setInsert(dto); 

@@ -19,6 +19,7 @@
 	<table border="1" width="80%">
 		<tr>
 			<th>순번</th>
+			<th>사진</th>
 			<th>아이디</th>
 			<th>이름</th>
 			<th>연락처</th>
@@ -32,6 +33,27 @@
 		%>
 		<tr>
 			<td><%=dto.getNo() %></td>
+			<td><%
+				if(dto.getAttachInfo() == null ||dto.getAttachInfo().equals("-")){
+					out.println(" ");
+				}else{
+					String[] tmp = dto.getAttachInfo().split(",");
+					 for(int j=0; j<tmp.length; j++) {
+	                     String[] imsiArray2 = tmp[j].split("[|]");
+	                     
+	                     String imsiImgPath = "";
+	                     imsiImgPath += request.getContextPath();
+	                     imsiImgPath += "/attach";
+	                     imsiImgPath += request.getContextPath();
+	                     imsiImgPath += "/member/";
+	                     imsiImgPath += imsiArray2[1];
+	                     
+	                     
+	                     out.println("<img src='" + imsiImgPath + "' width='50' height='50'><br>" + imsiArray2[0] + "<hr>");
+					}
+				}
+				%>
+			</td>
 			<td><a href="#" onclick="move('member_view','<%=dto.getNo() %>');"><%=dto.getId() %></a></td>
 			<td><%=dto.getName() %></td>
 			<td><%=dto.getPhone() %></td>

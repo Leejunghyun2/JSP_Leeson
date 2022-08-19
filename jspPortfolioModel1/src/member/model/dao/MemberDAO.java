@@ -30,6 +30,7 @@ public class MemberDAO {
 				dto.setJumin(rs.getString("jumin"));
 				dto.setGrade(rs.getString("grade"));
 				dto.setRegiDate(rs.getDate("regiDate"));
+				dto.setAttachInfo(rs.getString("attachInfo"));
 				list.add(dto);
 			}
 		} catch (Exception e) {
@@ -63,6 +64,8 @@ public class MemberDAO {
 				dto.setJuso4(rs.getString("juso4"));
 				dto.setGrade(rs.getString("grade"));
 				dto.setRegiDate(rs.getDate("regiDate"));
+				dto.setAttachInfo(rs.getString("attachInfo"));
+
 			}
 		} catch (Exception e) {
 			// e.printStackTrace();
@@ -76,7 +79,7 @@ public class MemberDAO {
 		int result = 0;
 		conn = DB.dbConn();
 		try {
-			String sql = "insert into member values (seq_member.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, sysdate)";
+			String sql = "insert into member values (seq_member.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, sysdate, ?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, paramDto.getId());
 			pstmt.setString(2, paramDto.getPasswd());
@@ -89,6 +92,7 @@ public class MemberDAO {
 			pstmt.setString(9, paramDto.getJuso3());
 			pstmt.setString(10, paramDto.getJuso4());
 			pstmt.setString(11, paramDto.getGrade());
+			pstmt.setString(12, paramDto.getAttachInfo());
 			
 			result = pstmt.executeUpdate();
 			
