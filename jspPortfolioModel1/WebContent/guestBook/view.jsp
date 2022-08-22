@@ -1,3 +1,5 @@
+<%@page import="guestBook.model.dao.GuestBookDAO"%>
+<%@page import="guestBook.model.dto.GuestBookDTO"%>
 <%@page import="memo.model.dao.MemoDAO"%>
 <%@page import="memo.model.dto.MemoDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -13,18 +15,21 @@ if(no_ == null || no_.equals("")){
 }
 
 int no = Integer.parseInt(no_);
-MemoDTO dto = new MemoDTO();
+GuestBookDTO dto = new GuestBookDTO();
 dto.setNo(no);
 
-MemoDAO dao = new MemoDAO();
-dto = dao.getSelectOne(dto);
+GuestBookDAO dao = new GuestBookDAO();
+dto = dao.getSelectOne(dto);   
 %>
 <h2>메모상세보기</h2>
-<form name="chugaForm">
 	<table border="1" align="center">
 		<tr>
 			<td>작성자 :</td>
-			<td><%=dto.getWriter() %></td>
+			<td><%=dto.getName() %></td>
+		</tr>
+		<tr>
+			<td>이메일 :</td>
+			<td><%=dto.getEmail() %></td>
 		</tr>
 		<tr>
 			<td>내용 :</td>
@@ -37,16 +42,15 @@ dto = dao.getSelectOne(dto);
 	</table>
 	<div style="border: 0px solid red; padding-top: 20px; width: 80%"; align="right">
 		|
-		<a href="#" onclick="move('memo_list','');">목록</a>
+		<a href="#" onclick="move('guestBook_list','');">목록</a>
 		|
-		<a href="#" onclick="move('memo_chuga','');">등록</a>
+		<a href="#" onclick="move('guestBook_chuga','');">등록</a>
 		|
-		<a href="#" onclick="move('memo_sujung','<%=dto.getNo()%>');">수정</a>
+		<a href="#" onclick="move('guestBook_sujung','<%=dto.getNo()%>');">수정</a>
 		|
-		<a href="#" onclick="move('memo_sakje','<%=dto.getNo()%>');">삭제</a>
+		<a href="#" onclick="move('guestBook_sakje','<%=dto.getNo()%>');">삭제</a>
 		|
 	</div>
-</form>
 <script>
 	function move(val1, val2) {
 		location.href = "main.jsp?menuGubun=" +val1+"&no=" + val2;

@@ -1,3 +1,5 @@
+<%@page import="guestBook.model.dao.GuestBookDAO"%>
+<%@page import="guestBook.model.dto.GuestBookDTO"%>
 <%@page import="memo.model.dao.MemoDAO"%>
 <%@page import="memo.model.dto.MemoDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -6,6 +8,8 @@
  request.setCharacterEncoding("UTF-8");
  
  String no_ = request.getParameter("no");
+ String passwd = request.getParameter("passwd");
+ String email = request.getParameter("email");
  String content = request.getParameter("content");
  
  if(no_ == null || no_.equals("")){
@@ -18,21 +22,23 @@
  int no = Integer.parseInt(no_);
 
  
- MemoDTO dto = new MemoDTO();
+ GuestBookDTO dto = new GuestBookDTO();
  dto.setNo(no);
+ dto.setEmail(email);
+ dto.setPasswd(passwd);
  dto.setContent(content);
- MemoDAO dao = new MemoDAO();
+ GuestBookDAO dao = new GuestBookDAO();
  int result = dao.setUpdate(dto); 
  
  if(result > 0){
 		out.println("<script>");
 		//out.println("");
-		out.println("location.href = 'main.jsp?menuGubun=memo_view&no="+no+"';");
+		out.println("location.href = 'main.jsp?menuGubun=guestBook_view&no="+no+"';");
 		out.println("</script>");
 	}  else{
 		out.println("<script>");
 		out.println("alert('수정 중 오류가 발생했습니다.')");
-		out.println("location.href = 'main.jsp?menuGubun=memo_sujung&no="+no+"';");
+		out.println("location.href = 'main.jsp?menuGubun=guestBook_sujung&no="+no+"';");
 		out.println("</script>");
 	}
 	
