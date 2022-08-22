@@ -11,7 +11,7 @@
 		out.println("location.href = '../error.jsp?errorCode=001';");
 		out.println("</script>");*/
 	}
-	
+	System.out.println(menuGubun);
 	String[] imsiMenuGubunArray =  menuGubun.split("_");
 	String folderName = imsiMenuGubunArray[0];
 	String fileName = imsiMenuGubunArray[1];

@@ -68,7 +68,39 @@
 				fileSize = String.valueOf(fileObj.length());
 				fileExtName = fileSavedName.substring(fileSavedName.lastIndexOf(".") + 1 );
 				fileExtName = fileExtName.toLowerCase(); 
-		
+				
+				
+				int errorCounter = 0;
+				if(fileExtName.toLowerCase().equals("png")){
+					
+				} else if (fileExtName.toLowerCase().equals("jpeg")){
+					
+				} else if(fileExtName.toLowerCase().equals("jpg")){
+					
+				} else if (fileExtName.toLowerCase().equals("gif")){
+					
+				} else {
+					errorCounter++;
+				}
+				if(errorCounter > 0){
+					String deleteFilePath = uploadPath + "/" + fileSavedName;
+					File f = new File(deleteFilePath);
+					if(f.delete()){
+						
+					} else {
+						
+					}
+				    fileOriginalName = ""; //파일의 원래이름
+					fileSavedName = "";	//탐색기에 올라가있는이름 
+					fileType = "";
+					fileSize ="";
+					
+				}
+				
+				
+				
+				
+				
 				newFileName = UUID.randomUUID().toString() + "." + fileExtName;
 				String oldFilePath = uploadPath + "/" + fileSavedName;
 				String newFilePath = uploadPath + "/" + newFileName;
