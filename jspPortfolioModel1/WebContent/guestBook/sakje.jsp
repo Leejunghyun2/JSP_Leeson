@@ -36,7 +36,14 @@
 		</tr>
 		<tr>
 			<td>내용 :</td>
-			<td><%=dto.getContent()%></td>
+			<td>
+			<%
+			String content = dto.getContent();
+			content = content.replace("\n", "<br>");
+			out.println(content);
+			%>
+			
+			</td>
 		</tr>
 		<tr>
 			<td colspan="2"><button type="button" onclick="sakje();">삭제하기</button>

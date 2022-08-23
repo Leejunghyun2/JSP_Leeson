@@ -1,19 +1,18 @@
 <%@page import="guestBook.model.dao.GuestBookDAO"%>
 <%@page import="guestBook.model.dto.GuestBookDTO"%>
 <%@page import="config.Util"%>
+<%@ include file="../_include/inc_sessionChk.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <%
  request.setCharacterEncoding("UTF-8");
  
  String name = request.getParameter("name");	
- String content = request.getParameter("content");	
  String passwd = request.getParameter("passwd");
  String email = request.getParameter("email");
+ String content = request.getParameter("content");	
  
- int failCounter = 0;
- if(name == null || name.equals("")){ failCounter++;}
- if(content == null || content.equals("")){ failCounter++;}
  
  Util util = new Util();
  name = util.getCheckString(name);
@@ -25,6 +24,7 @@
  dto.setPasswd(passwd);
  dto.setEmail(email);
  dto.setContent(content);
+ dto.setMemberNo(sessionNo);
  
  GuestBookDAO dao = new GuestBookDAO(); 
  int result = dao.setInsert(dto); 

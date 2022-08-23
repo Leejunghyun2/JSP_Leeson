@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="../_include/inc_sessionChk.jsp" %>
 <h2>메모등록</h2>
 	<form name="chugaForm">
 	<table border="1" align="center">
 		<tr>
 			<td>작성자 :</td>
-			<td><input type="text" name="name"></td>
+			<td><input type="text" name="name" value="<%=sessionName%>"></td>
 		</tr>
 		<tr>
 			<td>이메일 :</td>

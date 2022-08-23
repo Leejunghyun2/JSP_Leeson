@@ -10,4 +10,13 @@ public class Util {
 		 result = result.replace("'", "&apos;");
 		 return result;
 	}
+	  public String getNullBlankCheck(String str,String defaultStr) {
+	      String result=str;
+	      if(result == null || result.trim().equals("")) {
+	         result=defaultStr;
+	      }
+	      
+	      return result;
+	   }
+
 }

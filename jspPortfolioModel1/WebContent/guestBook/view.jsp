@@ -20,6 +20,13 @@ dto.setNo(no);
 
 GuestBookDAO dao = new GuestBookDAO();
 dto = dao.getSelectOne(dto);   
+if(dto.getNo() <= 0){
+	out.println("<script>");
+	out.println("alert('존재하지 않습니다.')");
+	out.println("location.href = 'main.jsp?menuGubun=memo_list';");
+	out.println("</script>");
+	return;
+}
 %>
 <h2>메모상세보기</h2>
 	<table border="1" align="center">
@@ -33,7 +40,18 @@ dto = dao.getSelectOne(dto);
 		</tr>
 		<tr>
 			<td>내용 :</td>
-			<td><%=dto.getContent() %></td>
+			<td>
+			<%=dto.getContent() %>
+			<hr>
+			<%
+			String content = dto.getContent();
+			content = content.replace("\n", "<br>");
+			out.println(content);
+			
+			%>
+			
+			
+			</td>
 		</tr>
 		<tr>
 			<td>등록일 :</td>

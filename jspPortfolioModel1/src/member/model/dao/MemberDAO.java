@@ -9,18 +9,39 @@ import config.DB;
 import member.model.dto.MemberDTO;
 
 public class MemberDAO {
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		
-	public ArrayList<MemberDTO> getSelectAll() {
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+
+	public ArrayList<MemberDTO> getSelectAll(String searchGubun, String searchData) {
 		conn = DB.dbConn();
 		ArrayList<MemberDTO> list = new ArrayList<>();
 		try {
-			String sql = "select * from member order by no desc";
+			String sql = "select * from member where 1 = 1";
+			if (searchGubun.equals("") || searchData.equals("")) {
+
+			} else if (searchGubun.equals("id_name_phone_jumin")) {
+				sql += " and (id like ? ";
+				sql += " or name like ? ";
+				sql += " or phone like ? ";
+				sql += " or jumin like ?) ";
+			} else {
+				sql += " and " + searchGubun + " like ?";
+			}
+			sql += " order by no desc";
 			pstmt = conn.prepareStatement(sql);
+			if (searchGubun.equals("") || searchData.equals("")) {
+
+			} else if (searchGubun.equals("id_name_phone_jumin")) {
+				pstmt.setString(1, "%"+searchData+"%");
+				pstmt.setString(2, "%"+searchData+"%");
+				pstmt.setString(3, "%"+searchData+"%");
+				pstmt.setString(4, "%"+searchData+"%");
+			} else {
+				pstmt.setString(1, "%"+searchData+"%");
+			}
 			rs = pstmt.executeQuery();
-			while(rs.next()) {
+			while (rs.next()) {
 				MemberDTO dto = new MemberDTO();
 				dto.setNo(rs.getInt("no"));
 				dto.setId(rs.getString("id"));
@@ -49,7 +70,7 @@ public class MemberDAO {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, paramDto.getNo());
 			rs = pstmt.executeQuery();
-			if(rs.next()) {
+			if (rs.next()) {
 				dto.setNo(rs.getInt("no"));
 				dto.setId(rs.getString("id"));
 				dto.setPasswd(rs.getString("passwd"));
@@ -74,7 +95,27 @@ public class MemberDAO {
 		}
 		return dto;
 	}
-
+	public MemberDTO getLogin(MemberDTO paramDto) {
+		conn = DB.dbConn();
+		MemberDTO dto = new MemberDTO();
+		try {
+			String sql = "select no, name, grade from member where id = ? and passwd = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, paramDto.getId());
+			pstmt.setString(2, paramDto.getPasswd());
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				dto.setNo(rs.getInt("no"));
+				dto.setName(rs.getString("name"));
+				dto.setGrade(rs.getString("grade"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DB.dbConnclose(rs, pstmt, conn);
+		}
+		return dto;
+	}
 	public int setInsert(MemberDTO paramDto) {
 		int result = 0;
 		conn = DB.dbConn();
@@ -93,9 +134,9 @@ public class MemberDAO {
 			pstmt.setString(10, paramDto.getJuso4());
 			pstmt.setString(11, paramDto.getGrade());
 			pstmt.setString(12, paramDto.getAttachInfo());
-			
+
 			result = pstmt.executeUpdate();
-			
+
 		} catch (Exception e) {
 			// e.printStackTrace();
 		} finally {
@@ -133,7 +174,7 @@ public class MemberDAO {
 		int result = 0;
 		conn = DB.dbConn();
 		try {
-			String sql = "delete from member where no = ? and passwd = ?"; 
+			String sql = "delete from member where no = ? and passwd = ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, paramDto.getNo());
 			pstmt.setString(2, paramDto.getPasswd());

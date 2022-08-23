@@ -24,7 +24,7 @@
 	<table border="1" align="center">
 		<tr>
 			<td>작성자 :</td>
-			<td><%=dto.getName() %></td>
+			<td><input type="text" name="name" value="<%=dto.getName() %>"></td>
 		</tr>
 		<tr>
 			<td>비밀번호 :</td>
@@ -32,7 +32,7 @@
 		</tr>
 		<tr>
 			<td>이메일 :</td>
-			<td><input type="text" name="email" value="<%=dto.getEmail()%>"></td>
+			<td><input type="email" name="email"  value="<%=dto.getEmail()%>" required></td>
 		</tr>
 		<tr>
 			<td>내용 :</td>

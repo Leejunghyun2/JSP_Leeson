@@ -1,3 +1,4 @@
+<%@page import="config.Util"%>
 <%@page import="member.model.dto.MemberDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="member.model.dao.MemberDAO"%>
@@ -5,8 +6,23 @@
     pageEncoding="UTF-8"%>
     
     <%
-    	MemberDAO dao = new MemberDAO();
-    	ArrayList<MemberDTO> list = dao.getSelectAll();
+    
+    String searchGubun = request.getParameter("searchGubun");
+	String searchData = request.getParameter("searchData");
+    
+    Util util = new Util();
+	searchGubun = util.getNullBlankCheck(searchGubun, "");
+	searchData = util.getNullBlankCheck(searchData, "");
+	
+	if(searchGubun.equals("") || searchData.equals("")){
+		searchGubun = "";
+		searchData = "";
+	}
+    MemberDAO dao = new MemberDAO();
+    ArrayList<MemberDTO> list = dao.getSelectAll(searchGubun, searchData); 
+    int totalCount = list.size();
+     
+    
     %>
 <!DOCTYPE html>
 <html>
@@ -16,6 +32,13 @@
 </head>
 <body>
 <h2>회원목록</h2>
+<div style="border: 0px solid red; padding-top: 20px; width: 80%;" align="left">
+	<%if(searchGubun.equals("")){ %>
+	* 전체목록 (<%=list.size() %>건)
+	<%} else { %>
+	* 검색어 <%=searchData %> 으/로 검색된 목록 (<%=list.size() %>건)
+	<%} %>
+</div>
 	<table border="1" width="80%">
 		<tr>
 			<th>순번</th>
@@ -64,7 +87,24 @@
 		<%
 		} 
 		%>
-	
+		<tr>
+    	<td colspan="8" align="center" style="padding: 20px 0px;">
+    	    <form name="searchForm"> 
+	    	     <select name="searchGubun" style="text-align: center;">
+	    	      <option value="" <% if(searchGubun.equals("")){out.print("selected");}%>>-- 선택 --</option>
+	    	      <option value="id" <% if(searchGubun.equals("id")){out.print("selected");}%>>아이디</option>
+	    	      <option value="name" <% if(searchGubun.equals("name")){out.print("selected");}%>>이름</option>
+	    	      <option value="phone" <% if(searchGubun.equals("phone")){out.print("selected");}%>>연락처</option>
+	    	      <option value="jumin" <% if(searchGubun.equals("jumin")){out.print("selected");}%>>주민번호</option>
+	    	      <option value="id_name_phone_jumin" <% if(searchGubun.equals("id_name_phone_jumin")){out.print("selected");}%>>아이디+이름+연락처+주민</option>
+	    	     </select>
+	    	     &nbsp;
+	    	     <input type="text" name="searchData" value="<%=searchData%>">
+	    	     &nbsp;
+    	     <button type="button" onclick="search();">검색하기</button>
+    	     </form>
+    	</td>
+    </tr>
 	</table>
 	<div style="border: 0px solid red; padding-top: 20px; width: 80%"; align="right">
 		|
@@ -78,6 +118,12 @@
 <script>
 function move(val1, val2){
 	location.href = 'main.jsp?menuGubun='+ val1 + "&no=" +val2;
+}
+function search(){
+	var f = document.searchForm
+	f.action = "mainProc.jsp?menuGubun=member_listSearch";
+	f.method = "post";
+	f.submit();
 }
 </script>
 </body>

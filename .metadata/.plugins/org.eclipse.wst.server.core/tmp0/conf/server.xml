@@ -151,8 +151,12 @@
              Documentation at: /docs/config/valve.html
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
-
-      <Context docBase="C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\jspPortfolioModel1" path="/jspPortfolioModel1" reloadable="true" source="org.eclipse.jst.jee.server:jspPortfolioModel1"/><Context docBase="C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\jspTest" path="/jspTest" reloadable="true" source="org.eclipse.jst.jee.server:jspTest"/></Host>
+      <Context docBase="C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\jspPortfolioModel1" path="/jspPortfolioModel1" reloadable="true" source="org.eclipse.jst.jee.server:jspPortfolioModel1"/>
+      <Context docBase="C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\jspTest" path="/jspTest" reloadable="true" source="org.eclipse.jst.jee.server:jspTest"/>
+      <Context docBase="/c:/LJH/attach" path="/jspPortfolioModel1/attach" reloadable="true"/>
+      
+      </Host>
+      
     </Engine>
   </Service>
 </Server>

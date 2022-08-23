@@ -24,6 +24,13 @@
  dto.setNo(no);
  dto.setPasswd(passwd);
  GuestBookDAO dao = new GuestBookDAO();
+ if(!dto.getPasswd().equals(passwd)){
+	 out.println("<script>");
+		out.println("alert('입력한 비밀번호가 다릅니다.')");
+		out.println("location.href = 'main.jsp?menuGubun=guestBook_sakje&no="+no+"';");
+		out.println("</script>");
+		return;
+ }
  int result = dao.setDelete(dto); 
  
  if(result > 0){
@@ -33,7 +40,7 @@
 		out.println("</script>");
 	}  else{
 		out.println("<script>");
-		out.println("alert('수정 중 오류가 발생했습니다.')");
+		out.println("alert('삭제 중 오류가 발생했습니다.')");
 		out.println("location.href = 'main.jsp?menuGubun=guestBook_sakje&no="+no+"';");
 		out.println("</script>");
 	}
