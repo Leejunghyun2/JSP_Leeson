@@ -1,5 +1,6 @@
 <%@page import="member.model.dto.MemberDTO"%>
 <%@page import="member.model.dao.MemberDAO"%>
+<%@ include file = "_inc_top.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%

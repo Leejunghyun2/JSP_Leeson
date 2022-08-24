@@ -4,7 +4,7 @@
 <%@page import="member.model.dao.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@ include file = "_inc_top.jsp" %>
     <%
     
     String searchGubun = request.getParameter("searchGubun");
@@ -22,7 +22,7 @@
     ArrayList<MemberDTO> list = dao.getSelectAll(searchGubun, searchData); 
     int totalCount = list.size();
      
-    
+ 
     %>
 <!DOCTYPE html>
 <html>

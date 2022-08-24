@@ -12,4 +12,5 @@
 		sessionName = (String) session.getAttribute("sessionName");
 		sessionGrade = (String) session.getAttribute("sessionGrade");
 	}
+	
 %>

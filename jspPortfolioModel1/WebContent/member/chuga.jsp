@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<jsp:include page = "_inc_top.jsp" flush="true"/>    
 <h2>회원등록</h2>
 	<form name="chugaForm">
 	<table border="1" align="center">

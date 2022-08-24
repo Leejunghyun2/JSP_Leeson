@@ -2,6 +2,7 @@
 <%@page import="member.model.dto.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file = "_inc_top.jsp" %>
  <%
    String no_=request.getParameter("no");   
    int no=Integer.parseInt(no_);

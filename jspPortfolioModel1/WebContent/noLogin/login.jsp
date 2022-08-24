@@ -13,8 +13,8 @@
 		<td><input type="password" name="passwd"></td>
 	</tr>
 	<tr>
-		<td colspan="2">아이디</td>
-		<td><button type="button" onclick="login();">로그인</button></td>
+		<td colspan="2"><button type="button" onclick="login();">로그인</button></td>
+		
 	</tr>
 </table>
 </form>

@@ -294,3 +294,15 @@
 8월 23, 2022 16:23:57.629 [5832:2976:0823/162357.628:ERROR:device_event_log_impl.cc(214)] [16:23:57.629] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
 8월 23, 2022 16:23:57.635 [5832:2976:0823/162357.635:ERROR:device_event_log_impl.cc(214)] [16:23:57.635] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
 8월 23, 2022 16:24:28.792 [5832:4264:0823/162428.792:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+
+8월 24, 2022 09:11:36.879 NEW SESSION
+8월 24, 2022 09:11:36.879 [6900:6236:0824/091136.878:ERROR:google_update_settings.cc(236)] Failed opening key Software\Google\Update\ClientStateMedium\{8A69D345-D564-463c-AFF1-A69D9E530F96} to set usagestats; result: 5
+8월 24, 2022 09:11:39.400 [6900:9624:0824/091139.399:ERROR:device_event_log_impl.cc(214)] [09:11:39.398] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+8월 24, 2022 09:11:39.407 [6900:9624:0824/091139.406:ERROR:device_event_log_impl.cc(214)] [09:11:39.406] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+8월 24, 2022 09:12:36.969 [6900:1144:0824/091236.968:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+8월 24, 2022 11:02:39.242 [6900:9624:0824/110239.242:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+8월 24, 2022 11:03:29.949 [6900:9624:0824/110329.949:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+8월 24, 2022 11:03:29.950 [6900:9624:0824/110329.949:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+8월 24, 2022 11:29:24.879 [6900:9624:0824/112924.878:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+8월 24, 2022 14:12:36.977 [6900:11512:0824/141236.976:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+8월 24, 2022 16:22:52.401 [6900:9624:0824/162252.400:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
