@@ -11,24 +11,29 @@
 <%
  request.setCharacterEncoding("UTF-8");
  
+ String no_ = request.getParameter("no");
  String writer = request.getParameter("writer");
  String subject = request.getParameter("subject");
+ String content = request.getParameter("content");	
  String passwd = request.getParameter("passwd");
  String email = request.getParameter("email");
- String content = request.getParameter("content");	
+
  
  
  Util util = new Util();
  content = util.getCheckString(content);
  
- BoardBasicDAO dao = new BoardBasicDAO(); 
- int num = dao.getMaxNum() + 1;
- int refNo = 0;
- int stepNo = 0;
- int levelNo = 0;
+ BoardBasicDTO dto = new BoardBasicDTO();
+ BoardBasicDAO dao = new BoardBasicDAO();
+ 	  int num = dao.getMaxNum() + 1;
+	  int refNo = dao.getRefNo() + 1;
+	  int stepNo = 1;
+	  int levelNo = 1;
+	  System.out.println("1");
+ 
+ 
  int hit = 0;
  
- BoardBasicDTO dto = new BoardBasicDTO();
  dto.setWriter(writer);
  dto.setPasswd(passwd);
  dto.setEmail(email);

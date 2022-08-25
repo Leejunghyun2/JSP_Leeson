@@ -17,7 +17,7 @@ public class BoardBasicDAO {
 		ArrayList<BoardBasicDTO> list = new ArrayList<>();
 		conn = DB.dbConn();
 		try {
-			String sql = "select no, subject, writer, regiDate, hit from boardBasic order by no desc";
+			String sql = "select no, subject, writer, stepNo, regiDate, hit from boardBasic order by refNo desc, levelNo asc";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 
@@ -26,6 +26,7 @@ public class BoardBasicDAO {
 				dto.setNo(rs.getInt("no"));
 				dto.setSubject(rs.getString("subject"));
 				dto.setWriter(rs.getString("writer"));
+				dto.setStepNo(rs.getInt("stepNo"));
 				dto.setRegiDate(rs.getDate("regiDate"));
 				dto.setHit(rs.getInt("hit"));
 				list.add(dto);
@@ -88,6 +89,41 @@ public class BoardBasicDAO {
 			DB.dbConnclose(rs, pstmt, conn);
 		}
 		return result;
+	}
+	
+	public int getRefNo() {
+		int result = 0;
+		conn = DB.dbConn();
+		try {
+			String sql = "select nvl(max(refNo),0) maxValue from boardBasic";
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				result = rs.getInt("maxValue");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			// TODO: handle exception
+		} finally {
+			DB.dbConnclose(rs, pstmt, conn);
+		}
+		return result;
+	}
+	
+	public void updateLevelNo(BoardBasicDTO paramDto) {
+		conn = DB.dbConn();
+		try {
+			String sql = "update boardBasic set levelNo = (levelNo + 1) where refNo = ? and levelNo > ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, paramDto.getRefNo());
+			pstmt.setInt(2, paramDto.getLevelNo());
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+			// TODO: handle exception
+		} finally {
+			DB.dbConnclose(rs, pstmt, conn);
+		}
 	}
 	
 	public int setInsert(BoardBasicDTO paramDto) {
@@ -157,10 +193,9 @@ public class BoardBasicDAO {
 	public void setUpdateHit(BoardBasicDTO paramDto) {
 		conn = DB.dbConn();
 		try {
-			String sql = "update boardBasic set hit = ? where no = ?";
+			String sql = "update boardBasic set hit = (hit + 1) where no = ?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, paramDto.getHit()+1);
-			pstmt.setInt(2, paramDto.getNo());
+			pstmt.setInt(1, paramDto.getNo());
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

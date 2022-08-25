@@ -37,7 +37,6 @@
 
 <table border="1" align="center" width="80%">
 	<tr>
-		<th>순번</th>
 		<th width="200px">제목</th>
 		<th>작성자</th>
 		<th>작성일</th>
@@ -46,10 +45,14 @@
 	<% 
 		for(int i=0; i<list.size();i++){
 			BoardBasicDTO dto = list.get(i);
+			String space = "";
+			for(int j=1; j<dto.getStepNo();j++){
+				space += "&nbsp;&nbsp;&nbsp;";
+			}
 		%>
 	<tr>
-		<td><%=totalCount-- %></td>
-		<td><a href="#" onclick="move('boardBasic_view','<%=dto.getNo()%>','<%=dto.getHit() %>');"><%=dto.getSubject() %></a></td>
+		
+		<td><%=space %><%if(dto.getStepNo() > 1){out.print("└[RE] : ");} %><a href="#" onclick="move('boardBasic_view','<%=dto.getNo()%>','<%=dto.getHit() %>');"><%=dto.getSubject() %></a></td>
 		<td><%=dto.getWriter() %></td>
 		<td><%=dto.getRegiDate() %></td>
 		<td><%=dto.getHit() %></td>

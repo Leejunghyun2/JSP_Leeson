@@ -19,6 +19,8 @@ C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\32399
 \jspPortfolioModel1\src
 C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2626072481.index
 \jspTest\src
+C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\465711528.index
+\jspTest\src
 C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2925352787.index
 \jspTest\src
 C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4208421001.index
@@ -57,6 +59,8 @@ C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\27282
 \jspTest\src
 C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3894010644.index
 \jspTest\src
+C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3624705005.index
+\jspPortfolioModel1\src
 C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2509784306.index
 \jspTest\src
 C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3210422405.index

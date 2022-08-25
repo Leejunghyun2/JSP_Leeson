@@ -8,8 +8,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
+
 String no_ = request.getParameter("no");
-String hit_ = request.getParameter("hit");
 if(no_ == null || no_.equals("")){
 	out.println("<script>");
 	out.println("alert('잘못된 접근입니다.')");
@@ -18,10 +18,8 @@ if(no_ == null || no_.equals("")){
 }
 
 int no = Integer.parseInt(no_);
-int hit = Integer.parseInt(hit_);
 BoardBasicDTO dto = new BoardBasicDTO();
 dto.setNo(no);
-dto.setHit(hit);
 BoardBasicDAO dao = new BoardBasicDAO();
 dao.setUpdateHit(dto);
 dto = dao.getSelectOne(dto);   
@@ -32,11 +30,12 @@ if(dto.getNo() <= 0){
 	out.println("</script>");
 	return;
 }
+String moveUrl = "main.jsp?menuGubun=";
 %>
 <h2>메모상세보기</h2>
-	<table border="1" align="center">
+	<table border="1" align="center" width="80%">
 		<tr>
-			<td>제목 :</td>
+			<td width="150">제목 :</td>
 			<td><%=dto.getSubject() %></td>
 		</tr>
 		<tr>
@@ -65,6 +64,8 @@ if(dto.getNo() <= 0){
 	</table>
 	<div style="border: 0px solid red; padding-top: 20px; width: 80%;" align="right">
 		|
+		<a href="#" onclick="move('boardBasic_reply','<%=dto.getNo()%>');">댓글달기</a>
+		|
 		<a href="#" onclick="move('boardBasic_list','');">목록</a>
 		|
 		<a href="#" onclick="move('boardBasic_chuga','');">등록</a>
@@ -76,6 +77,6 @@ if(dto.getNo() <= 0){
 	</div>
 <script>
 	function move(val1, val2) {
-		location.href = "main.jsp?menuGubun=" +val1+"&no=" + val2;
+		location.href = "<%=moveUrl%>" + val1 +"&no=" + val2;
 	}
 </script>

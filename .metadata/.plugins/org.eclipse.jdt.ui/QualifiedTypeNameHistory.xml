@@ -18,6 +18,6 @@
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="guestBook.model.dto.GuestBookDTO"/>
-    <fullyQualifiedTypeName name="boardBasic.model.dto.BoardBasicDTO"/>
     <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="boardBasic.model.dto.BoardBasicDTO"/>
 </qualifiedTypeNameHistroy>
