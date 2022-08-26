@@ -64,7 +64,7 @@ String moveUrl = "main.jsp?menuGubun=";
 	</table>
 	<div style="border: 0px solid red; padding-top: 20px; width: 80%;" align="right">
 		|
-		<a href="#" onclick="move('boardBasic_reply','<%=dto.getNo()%>');">댓글달기</a>
+		<a href="#" onclick="move('boardBasic_chuga','<%=dto.getNo()%>');">댓글달기</a>
 		|
 		<a href="#" onclick="move('boardBasic_list','');">목록</a>
 		|

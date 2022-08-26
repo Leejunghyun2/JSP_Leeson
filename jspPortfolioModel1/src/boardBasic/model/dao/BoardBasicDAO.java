@@ -17,7 +17,7 @@ public class BoardBasicDAO {
 		ArrayList<BoardBasicDTO> list = new ArrayList<>();
 		conn = DB.dbConn();
 		try {
-			String sql = "select no, subject, writer, stepNo, regiDate, hit from boardBasic order by refNo desc, levelNo asc";
+			String sql = "select no, subject, writer, stepNo, regiDate, hit, memberNo, ip, parentNo from boardBasic order by refNo desc, levelNo asc";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 
@@ -29,6 +29,9 @@ public class BoardBasicDAO {
 				dto.setStepNo(rs.getInt("stepNo"));
 				dto.setRegiDate(rs.getDate("regiDate"));
 				dto.setHit(rs.getInt("hit"));
+				dto.setMemberNo(rs.getInt("memberNo"));
+				dto.setIp(rs.getString("ip"));
+				dto.setParentNo(rs.getInt("parentNo"));
 				list.add(dto);
 			}
 		} catch (Exception e) {
@@ -39,6 +42,7 @@ public class BoardBasicDAO {
 		}
 		return list;
 	}
+	
 	
 	public BoardBasicDTO getSelectOne(BoardBasicDTO paramDto) {
 		conn = DB.dbConn();
@@ -62,6 +66,9 @@ public class BoardBasicDAO {
 				dto.setLevelNo(rs.getInt("levelNo"));
 				dto.setHit(rs.getInt("hit"));
 				dto.setRegiDate(rs.getDate("regiDate"));
+				dto.setMemberNo(rs.getInt("memberNo"));
+				dto.setIp(rs.getString("ip"));
+				dto.setParentNo(rs.getInt("parentNo"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -130,8 +137,8 @@ public class BoardBasicDAO {
 		int result = 0;
 		conn = DB.dbConn();
 		try {
-			String sql = "insert into boardBasic (no, num, writer, subject, content, email, passwd, refNo, stepNo, levelNo, hit, regiDate)"
-					+ " values(seq_boardBasic.nextval,  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, sysdate)";
+			String sql = "insert into boardBasic (no, num, writer, subject, content, email, passwd, refNo, stepNo, levelNo, hit, regiDate, memberNo, ip, parentNo)"
+					+ " values(seq_boardBasic.nextval,  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, sysdate, ?, ?, ?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, paramDto.getNum());
 			pstmt.setString(2, paramDto.getWriter());
@@ -143,6 +150,9 @@ public class BoardBasicDAO {
 			pstmt.setInt(8, paramDto.getStepNo());
 			pstmt.setInt(9, paramDto.getLevelNo());
 			pstmt.setInt(10, paramDto.getHit());
+			pstmt.setInt(11, paramDto.getMemberNo());
+			pstmt.setString(12, paramDto.getIp());
+			pstmt.setInt(13, paramDto.getParentNo());
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

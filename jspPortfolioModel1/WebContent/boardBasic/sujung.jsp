@@ -2,7 +2,6 @@
 <%@page import="boardBasic.model.dto.BoardBasicDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../_include/inc_sessionChk.jsp" %>
 <%@ include file="_inc_top.jsp" %>
 <%
  	String no_ = request.getParameter("no");

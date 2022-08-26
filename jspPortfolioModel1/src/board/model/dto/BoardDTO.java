@@ -1,10 +1,11 @@
-package boardBasic.model.dto;
+package board.model.dto;
 
 import java.sql.Date;
 
-public class BoardBasicDTO {
+public class BoardDTO {
 	private int no;
 	private int num;
+	private String tbl;
 	private String writer;
 	private String subject;
 	private String content;
@@ -13,37 +14,15 @@ public class BoardBasicDTO {
 	private int refNo;
 	private int stepNo;
 	private int levelNo;
-	private int hit;
-	private Date regiDate;
-	
-	private int memberNo;
-	private String ip;
 	private int parentNo;
+	private int hit; 
+	private String ip;
+	private int memberNo;
+	private int noticeNo;
+	private String secretGubun;
+	private Date regiDate;
+	private String attachInfo;
 	
-	public int getParentNo() {
-		return parentNo;
-	}
-	public void setParentNo(int parentNo) {
-		this.parentNo = parentNo;
-	}
-	public String getIp() {
-		return ip;
-	}
-	public void setIp(String ip) {
-		this.ip = ip;
-	}
-	public int getMemberNo() {
-		return memberNo;
-	}
-	public void setMemberNo(int memberNo) {
-		this.memberNo = memberNo;
-	}
-	public Date getRegiDate() {
-		return regiDate;
-	}
-	public void setRegiDate(Date regiDate) {
-		this.regiDate = regiDate;
-	}
 	public int getNo() {
 		return no;
 	}
@@ -55,6 +34,12 @@ public class BoardBasicDTO {
 	}
 	public void setNum(int num) {
 		this.num = num;
+	}
+	public String getTbl() {
+		return tbl;
+	}
+	public void setTbl(String tbl) {
+		this.tbl = tbl;
 	}
 	public String getWriter() {
 		return writer;
@@ -104,10 +89,52 @@ public class BoardBasicDTO {
 	public void setLevelNo(int levelNo) {
 		this.levelNo = levelNo;
 	}
+	public int getParentNo() {
+		return parentNo;
+	}
+	public void setParentNo(int parentNo) {
+		this.parentNo = parentNo;
+	}
 	public int getHit() {
 		return hit;
 	}
 	public void setHit(int hit) {
 		this.hit = hit;
+	}
+	public String getIp() {
+		return ip;
+	}
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+	public int getMemberNo() {
+		return memberNo;
+	}
+	public void setMemberNo(int memberNo) {
+		this.memberNo = memberNo;
+	}
+	public int getNoticeNo() {
+		return noticeNo;
+	}
+	public void setNoticeNo(int noticeNo) {
+		this.noticeNo = noticeNo;
+	}
+	public String getSecretGubun() {
+		return secretGubun;
+	}
+	public void setSecretGubun(String secretGubun) {
+		this.secretGubun = secretGubun;
+	}
+	public Date getRegiDate() {
+		return regiDate;
+	}
+	public void setRegiDate(Date regiDate) {
+		this.regiDate = regiDate;
+	}
+	public String getAttachInfo() {
+		return attachInfo;
+	}
+	public void setAttachInfo(String attachInfo) {
+		this.attachInfo = attachInfo;
 	}
 }

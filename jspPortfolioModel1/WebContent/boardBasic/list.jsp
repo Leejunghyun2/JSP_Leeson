@@ -41,6 +41,8 @@
 		<th>작성자</th>
 		<th>작성일</th>
 		<th>조회수</th>
+		<th>실작성자</th>
+		<td>ip</td>
 	</tr>
 	<% 
 		for(int i=0; i<list.size();i++){
@@ -51,11 +53,23 @@
 			}
 		%>
 	<tr>
+		<% String subject = dto.getSubject();
+		if(dto.getSubject().length()>5){
+			subject = dto.getSubject().substring(0,5)+"..";
+		}
+		%>
 		
-		<td><%=space %><%if(dto.getStepNo() > 1){out.print("└[RE] : ");} %><a href="#" onclick="move('boardBasic_view','<%=dto.getNo()%>','<%=dto.getHit() %>');"><%=dto.getSubject() %></a></td>
+		<td><%=space %><%if(dto.getStepNo() > 1){out.print("└[RE] : ");} %><a href="#" onclick="move('boardBasic_view','<%=dto.getNo()%>','<%=dto.getHit() %>');"><%=subject %></a></td>
 		<td><%=dto.getWriter() %></td>
 		<td><%=dto.getRegiDate() %></td>
 		<td><%=dto.getHit() %></td>
+		<td><%if(dto.getMemberNo()>0){
+				out.println("회원["+dto.getMemberNo()+"]");
+			}else {
+				out.println("비회원["+dto.getMemberNo()+"]");
+			}
+			%></td>
+		<td><%=dto.getIp() %></td>
 	</tr>
     <%} %>
     
