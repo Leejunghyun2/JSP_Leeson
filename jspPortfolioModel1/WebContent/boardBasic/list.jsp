@@ -75,7 +75,8 @@
     
     <tr>
     	<td colspan="5" align="center" style="padding: 20px 0px;">
-    	    <form name="searchForm"> 
+    	    <form name="searchForm">
+    	     
 	    	     <select name="searchGubun">
 	    	      <option value="" <% if(searchGubun.equals("")){out.print("selected");}%>>-- 선택 --</option>
 	    	      <option value="name" <% if(searchGubun.equals("name")){out.print("selected");}%>>이름</option>
@@ -83,9 +84,10 @@
 	    	      <option value="name_content" <% if(searchGubun.equals("name_content")){out.print("selected");}%>>이름+내용</option>
 	    	     </select>
 	    	     &nbsp;
-	    	     <input type="text" name="searchData" value="<%=searchData%>">
+	    	     <input type="text" name="searchData" style= "outline:none;" value="<%=searchData%>">
 	    	     &nbsp;
-    	     <button type="button" onclick="search();">검색하기</button>
+    	     <button type="button" onclick="search();" >검색하기</button>
+    	   
     	     </form>
     	</td>
     </tr>

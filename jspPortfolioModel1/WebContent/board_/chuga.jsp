@@ -1,9 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="_inc_top.jsp" %>
-
-<h2>글쓰기</h2>
+<%
+	String subject = resultDto.getSubject();
+	String content = resultDto.getContent();
+	String header = "게시글답변";
+	if(resultDto.getNo() <= 0) {
+		subject = "";
+		content = "";
+		header = "게시글등록";
+	}
+%>
+<h2><%=header %></h2>
 <form name="chugaForm">
+	<input type="hidden" name="no" value="<%=resultDto.getNo() %>">
 	<table border="1" align="center" style="margin-bottom: 50px">
 		<tr>
 			<td>작성자 :</td>
@@ -19,11 +29,11 @@
 		</tr>
 		<tr>
 			<td>제목 :</td>
-			<td><input type="text" name="subject" id="subject" ></td>
+			<td><input type="text" name="subject" id="subject" value="<%=subject%>"></td>
 		</tr>
 		<tr>
 			<td>내용 :</td>
-			<td><textarea   style="width: 300px; height: 180px;" name="content"></textarea></td>
+			<td><textarea   style="width: 300px; height: 180px;" name="content"><%=content %></textarea></td>
 		</tr>
 		<tr>
 			<td>공지글</td>

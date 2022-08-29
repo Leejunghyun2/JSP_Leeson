@@ -17,7 +17,7 @@ public class BoardDAO {
 		ArrayList<BoardDTO> list = new ArrayList<>();
 		conn = DB.dbConn();
 		try {
-			String sql ="select * from board order by no desc";
+			String sql ="select * from board order by refNo desc , levelNo asc";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
@@ -54,8 +54,9 @@ public class BoardDAO {
 		conn = DB.dbConn();
 		BoardDTO dto = new BoardDTO();
 		try {
-			String sql ="select * from board order by no desc";
+			String sql ="select * from board where no = ? order by no desc ";
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, paramDto.getNo());
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				dto.setNo(rs.getInt("no"));
@@ -152,14 +153,14 @@ public class BoardDAO {
 		return result;
 	}
 	
-	public int serDelete(BoardDTO paramDto) {
+	public int setDelete(BoardDTO paramDto) {
 		int result = 0;
 		conn = DB.dbConn();
 		try {
-			String sql = "delete from board where no ? and passwd = ?";
+			String sql = "delete from board where no = ? and passwd = ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, paramDto.getNo());
-			pstmt.setString(1, paramDto.getPasswd());
+			pstmt.setString(2, paramDto.getPasswd());
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -169,4 +170,53 @@ public class BoardDAO {
 		
 		return result;
 	}
+	
+	public int getMaxNumRefNo(String str) {
+		int result = 0;
+		conn = DB.dbConn();
+		try {
+				String sql = "select nvl(max("+str+"), 0) maxValue from board";
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				result = rs.getInt("maxValue");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DB.dbConnclose(rs, pstmt, conn);
+		}
+		return result;
+	}
+	
+	public void setUpdateRelevel(BoardDTO paramDto) {
+		conn = DB.dbConn();
+		try {
+			String sql = "update board set levelNo = (levelNo + 1) where refNo = ? and levelNo > ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, paramDto.getRefNo());
+			pstmt.setInt(2, paramDto.getLevelNo());
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally {
+			DB.dbConnclose(rs, pstmt, conn);
+		}
+	}
+	
+	public void setUpdateHit(BoardDTO paramDto) {
+		conn = DB.dbConn();
+		try {
+			String sql = "update board set hit = (hit + 1) where no = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, paramDto.getNo());
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally {
+			DB.dbConnclose(rs, pstmt, conn);
+		}
+	}
+	
+	
 }

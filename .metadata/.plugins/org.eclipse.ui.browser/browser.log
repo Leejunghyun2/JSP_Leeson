@@ -363,3 +363,10 @@
 8월 26, 2022 09:17:41.367 [8504:11920:0826/091741.367:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
 8월 26, 2022 10:23:00.957 [8504:6408:0826/102300.957:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
 8월 26, 2022 14:17:41.378 [8504:1852:0826/141741.377:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+
+8월 29, 2022 09:08:03.445 NEW SESSION
+8월 29, 2022 09:08:03.445 [12036:12816:0829/090803.443:ERROR:google_update_settings.cc(236)] Failed opening key Software\Google\Update\ClientStateMedium\{8A69D345-D564-463c-AFF1-A69D9E530F96} to set usagestats; result: 5
+8월 29, 2022 09:08:06.124 [12036:11952:0829/090806.123:ERROR:device_event_log_impl.cc(214)] [09:08:06.123] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+8월 29, 2022 09:08:06.147 [12036:11952:0829/090806.147:ERROR:device_event_log_impl.cc(214)] [09:08:06.147] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+8월 29, 2022 09:09:03.553 [12036:9632:0829/090903.552:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+8월 29, 2022 14:09:03.556 [12036:8796:0829/140903.555:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
