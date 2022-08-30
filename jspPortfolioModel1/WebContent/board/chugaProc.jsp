@@ -2,6 +2,14 @@
     pageEncoding="UTF-8"%>
 <%@ include file="_inc_top.jsp" %>
 <%
+	String no_ = request.getParameter("no");
+
+	int failCounter = 0;
+	if(no_ == null || no_.trim().equals("")){
+		failCounter++;	
+	}
+	int no = Integer.parseInt(no_);
+	
 	//데이터베이스 들어가기전에 예외처리 다해야함
 	String writer = request.getParameter("writer");
 	String email = request.getParameter("email");
@@ -20,6 +28,21 @@
 	int stepNo = 1;
 	int levelNo = 1;
 	int parentNo = 0;
+	
+	//답변글
+	if(no > 0){
+		BoardDTO boardDto = new BoardDTO();
+		boardDto.setNo(no);
+		
+		boardDto = dao.getSelectOne(boardDto);
+		dao.setUpdateRelevel(boardDto);
+		
+		refNo = boardDto.getRefNo();
+		stepNo = boardDto.getStepNo() + 1;
+		levelNo = boardDto.getLevelNo() + 1;
+		parentNo = no;
+	}
+	
 	
 	int hit = 0;
 	

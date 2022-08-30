@@ -13,12 +13,42 @@ public class BoardDAO {
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
-	public ArrayList<BoardDTO> getSelectAll(){
+	public ArrayList<BoardDTO> getSelectAll(String searchGubun, String searchData,int startRecord,int lastRecord){
 		ArrayList<BoardDTO> list = new ArrayList<>();
 		conn = DB.dbConn();
 		try {
-			String sql ="select * from board order by refNo desc , levelNo asc";
+			String basicSql = "select * from board";	//"select * from board order by noticeNo desc, refNo desc , levelNo asc";
+			if(!searchGubun.equals("")) {
+				if(searchGubun.equals("writer_subject_content")) {
+					basicSql += " where (writer like ? or subject like ? or content like ?) ";
+				} else {
+					basicSql += " where " + searchGubun + " like ? ";
+				}
+			}
+			basicSql += " order by noticeNo desc, refNo desc , levelNo asc";
+			String sql = "";
+			sql += "select * from (select A.*, rownum rnum from(";
+			sql += basicSql;
+			sql += ") A) where rnum >= ? and rnum <= ?";
 			pstmt = conn.prepareStatement(sql);
+			if(!searchGubun.equals("")) {
+				if(searchGubun.equals("writer_subject_content")) {
+					pstmt.setString(1, "%"+searchData+"%");
+					pstmt.setString(2, "%"+searchData+"%");
+					pstmt.setString(3, "%"+searchData+"%");
+					pstmt.setInt(4, startRecord );
+					pstmt.setInt(5, lastRecord);
+				} else {
+					pstmt.setString(1, "%" + searchData + "%");
+					pstmt.setInt(2, startRecord );
+					pstmt.setInt(3, lastRecord);
+				}
+			} else {
+				pstmt.setInt(1, startRecord );
+				pstmt.setInt(2, lastRecord);
+			}
+		
+			
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				BoardDTO dto = new BoardDTO();
@@ -168,6 +198,40 @@ public class BoardDAO {
 			DB.dbConnclose(rs, pstmt, conn);
 		}
 		
+		return result;
+	}
+	
+	public int getTotalRecord(String searchGubun, String searchData) {
+		int result = 0;
+		conn = DB.dbConn();
+		try {
+			String sql = "select count(*) recordCounter from board ";//"select count(*) recordCounter from board";
+			if(!searchGubun.equals("")) {
+				if(searchGubun.equals("writer_subject_content")) {
+					sql += " where (writer like ? or subject like ? or content like ?)";
+				} else {
+					sql += " where "+searchGubun+" like ? ";
+				}
+			}
+			pstmt = conn.prepareStatement(sql);
+			if(!searchGubun.equals("")) {
+				if(searchGubun.equals("writer_subject_content")) {
+					pstmt.setString(1, "%"+searchData+"%");
+					pstmt.setString(2, "%"+searchData+"%");
+					pstmt.setString(3, "%"+searchData+"%");
+				} else {
+					pstmt.setString(1, "%" + searchData + "%");
+				}
+			}
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				result = rs.getInt("recordCounter");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DB.dbConnclose(rs, pstmt, conn);
+		}
 		return result;
 	}
 	

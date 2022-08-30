@@ -1,9 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="_inc_top.jsp" %>
-
-<h2>글쓰기</h2>
+<%
+	String no_ = request.getParameter("no");
+	if(no_ == null || no_.trim().equals("")){
+		no_ = "0";
+	} else{
+		//숫자인지아닌지 체크
+	}
+	int no = Integer.parseInt(no_);
+	String subject = "";
+	String content = "";
+	if(no > 0){
+		BoardDTO arguDto = new BoardDTO();
+		arguDto.setNo(no);
+		
+		BoardDAO dao = new BoardDAO();
+		BoardDTO resultDto = dao.getSelectOne(arguDto);
+		
+		subject = resultDto.getSubject();
+		content = resultDto.getContent();
+	}
+%>
+<%if(no > 0){ %>
+	<h2>답변쓰기</h2>
+<%} else { %>
+	<h2>글쓰기</h2>
+<%} %>
 <form name="chugaForm">
+<input type="hidden" name="no" value="<%=no %>">
 	<table border="1" align="center" style="margin-bottom: 50px">
 		<tr>
 			<td>작성자 :</td>
@@ -19,11 +44,11 @@
 		</tr>
 		<tr>
 			<td>제목 :</td>
-			<td><input type="text" name="subject" id="subject" ></td>
+			<td><input type="text" name="subject" id="subject"  value="<%=subject%>"></td>
 		</tr>
 		<tr>
 			<td>내용 :</td>
-			<td><textarea   style="width: 300px; height: 180px;" name="content"></textarea></td>
+			<td><textarea   style="width: 300px; height: 180px;" name="content"><%=content %></textarea></td>
 		</tr>
 		<tr>
 			<td>공지글</td>
