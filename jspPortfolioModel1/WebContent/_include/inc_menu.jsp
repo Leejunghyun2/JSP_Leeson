@@ -42,6 +42,9 @@
 		<td align="center" style="padding: 10px;" id="shopMall">
 			<a href="<%=path%>/main/main.jsp?menuGubun=shopMall_list">몰(Mall)</a>
 		</td>
+		<td align="center" style="padding: 10px;" id="shopCart">
+			<a href="<%=path%>/main/main.jsp?menuGubun=shopCart_list">몰(Cart)</a>
+		</td>
 	</tr>
 </table>
 <script>

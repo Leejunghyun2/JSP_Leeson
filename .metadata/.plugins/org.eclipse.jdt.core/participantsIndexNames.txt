@@ -3,6 +3,8 @@ C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\11100
 \jspTest\src
 C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1028276669.index
 \jspPortfolioModel1\src
+C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2969170030.index
+\jspPortfolioModel1\src
 C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2925352787.index
 \jspTest\src
 C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2460875925.index

@@ -17,8 +17,9 @@
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="guestBook.model.dto.GuestBookDTO"/>
     <fullyQualifiedTypeName name="boardBasic.model.dto.BoardBasicDTO"/>
-    <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="board.model.dto.BoardDTO"/>
     <fullyQualifiedTypeName name="config.DB"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="shopMall.model.dto.CartDTO"/>
 </qualifiedTypeNameHistroy>
