@@ -9,10 +9,19 @@ public class CartDTO {
 	private int amount;
 	private Date regiDate;
 	
+	
 	private String productName;
 	private int productPrice;
 	private String productInfo;
 	
+	private int buyMoney;
+	
+	public int getBuyMoney() {
+		return buyMoney;
+	}
+	public void setBuyMoney(int buyMoney) {
+		this.buyMoney = buyMoney;
+	}
 	public int getProductPrice() {
 		return productPrice;
 	}

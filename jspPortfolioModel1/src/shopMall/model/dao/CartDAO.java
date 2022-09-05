@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
 import config.DB;
 import shopMall.model.dto.CartDTO;
@@ -12,14 +13,36 @@ public class CartDAO {
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
-//	cartNo number not null,
-//	memberNo number not null,
-//	productCode number not null,
-//	amount number not null,
-//	regiDate date not null,
-	public ArrayList<CartDTO> getSelectAll() {
+
+	public ArrayList<CartDTO> getSelectCartProductGroup(){
+		ArrayList<CartDTO> list = new ArrayList<>(); 
 		conn = DB.dbConn();
+		try {
+			String sql = "";
+			sql += "select p.productName, sum(c.amount * p.productPrice) buyMoney ";
+			sql += "from cart c inner join product p on c.productCode = p.productCode ";
+			sql += "group by p.productName ";
+			sql += "order by productName asc ";
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				CartDTO dto = new CartDTO();
+				dto.setProductName(rs.getString("productName"));
+				dto.setBuyMoney(rs.getInt("buyMoney"));
+				list.add(dto);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			// TODO: handle exception
+		} finally {
+			DB.dbConnclose(rs, pstmt, conn);
+		}
+		return list;
+	}
+	
+	public ArrayList<CartDTO> getSelectAll() {
 		ArrayList<CartDTO> list = new ArrayList<>();
+		conn = DB.dbConn();
 		try {
 			String sql = "select c.*, (";
 				 //  sql +="select productName from product p where p.productCode = c.productCode";
@@ -163,4 +186,6 @@ public class CartDAO {
 		}
 		return result;
 	}
+	
+	
 }

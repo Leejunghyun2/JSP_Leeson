@@ -1,4 +1,6 @@
 INDEX VERSION 1.131
+C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\652015034.index
+\jspPortfolioModel1\src
 C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1110084958.index
 \jspTest\src
 C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1028276669.index
@@ -69,6 +71,8 @@ C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\21333
 \jspTest\src
 C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3704564838.index
 \jspTest\src
+C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\844860193.index
+\jspPortfolioModel1\src
 C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1949551530.index
 \jspTest\src
 C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1724268805.index

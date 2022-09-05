@@ -4,7 +4,7 @@
 <%@ include file="../_include/inc_sessionChk.jsp" %>
 <table border="0" align="center">
 	<tr>
-		<td colspan="10" align="right" style="padding: 0px 10px 0px 0px;">
+		<td colspan="12" align="right" style="padding: 0px 10px 0px 0px;">
 		<%if(sessionNo <= 0){ %>
 			<a href="main.jsp?menuGubun=noLogin_login">[로그인]</a>
 			<%} else { %>
@@ -44,6 +44,12 @@
 		</td>
 		<td align="center" style="padding: 10px;" id="shopCart">
 			<a href="<%=path%>/main/main.jsp?menuGubun=shopCart_list">몰(Cart)</a>
+		</td>
+		<td align="center" style="padding: 10px;" id="chart">
+			<a href="<%=path%>/main/main.jsp?menuGubun=chart_list">챠트</a>
+		</td>
+		<td align="center" style="padding: 10px;" id="subBoard">
+			<a href="<%=path%>/main/main.jsp?menuGubun=subBoard_list">게시판(sub)</a>
 		</td>
 	</tr>
 </table>
