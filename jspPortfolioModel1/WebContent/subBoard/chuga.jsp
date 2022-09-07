@@ -1,8 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="_inc_top.jsp" %>
-<h2>글쓰기</h2>
+<%
+	String title = "글쓰기";
+	String imsiSubject = "";
+	String imsiContent = "";
+	
+	if(no > 0){
+		title = "답변쓰기";
+		
+		SubBoardDTO arguDto = new SubBoardDTO();
+		arguDto.setNo(no);
+		
+		SubBoardDAO dao = new SubBoardDAO();
+		SubBoardDTO returnDto = dao.getSelectOne(arguDto);
+		
+		if(returnDto.getNo() <= 0){
+			out.println("메롱..");
+			return;
+		}
+		
+		imsiSubject = returnDto.getSubject();
+		imsiContent = returnDto.getContent();
+	}
+%>
+<h2><%=title %></h2>
 <form name="DirForm">
+<input type="hidden" name="no" value="<%=no %>">
+<input type="hidden" name="searchGubun" value="<%=searchGubun%>">
+<input type="hidden" name="searchData" value="<%=searchData%>">
 <table border="1" width="80%">
 	<tr>
 		<td>작성자</td>
@@ -18,11 +44,11 @@
 	</tr>
 	<tr>
 		<td>제목</td>
-		<td><input type="text" name="subject" value=""></td>
+		<td><input type="text" name="subject" value="<%=imsiSubject%>"></td>
 	</tr>
 	<tr>
 		<td>내용</td>
-		<td><textarea name="content" style="width: 300px; height : 100px;"></textarea></td>
+		<td><textarea name="content" style="width: 300px; height : 100px;"><%=imsiContent %></textarea></td>
 	</tr>
 	<tr>
 		<td>공지글</td>

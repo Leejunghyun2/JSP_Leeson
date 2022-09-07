@@ -9,7 +9,10 @@
 	String content = request.getParameter("content");
 	String noticeGubun = request.getParameter("noticeGubun");
 	String secretGubun = request.getParameter("secretGubun");
-		
+	
+	
+	
+	
 	SubBoardDAO dao = new SubBoardDAO(); 
 	int num = dao.getMaxValueNumRefNoNoticeNo("num") + 1; //num필드의 최대값 + 1
 	String tbl = "-";
@@ -20,14 +23,28 @@
 	int levelNo = 1; //초기값 1
 	int parentNo = 0; //초기값 0
 	int hit = 0;
+	//답변글일때
+	if(no > 0){
+		SubBoardDTO arguDto = new SubBoardDTO();
+		arguDto.setNo(no);
+		SubBoardDTO returnDto = dao.getSelectOne(arguDto);
+		
+		refNo = returnDto.getRefNo();
+		stepNo = returnDto.getStepNo() + 1;
+		
+		dao.setUpdateReLevel(returnDto);
+		levelNo = returnDto.getLevelNo() + 1;
+		parentNo = no;
+	}
 	
 	int memberNo = sessionNo;
-	int noticeNo = 0; 
+	int noticeNo = 0;
 	if(noticeGubun.equals("T")){
 		noticeNo = dao.getMaxValueNumRefNoNoticeNo("noticeNo") + 1; // noticeGubun 최대값 + 1
 	}
 	
 	String attachInfo = "-"; 
+	content = util.getCheckString(content);
 	
 	SubBoardDTO arguDto = new SubBoardDTO();
 	arguDto.setNum(num);
@@ -48,8 +65,6 @@
 	arguDto.setMemberNo(memberNo);
 	arguDto.setAttachInfo(attachInfo);
 	
-	util.getCheckString(content);
-	
 	int result = dao.setInsert(arguDto);
 	
  	if(result > 0){
@@ -60,7 +75,7 @@
 	} else {
 		out.println("<script>");
 		out.println("alert('등록 중 오류가 발생했습니다.')");
-		out.println("location.href = 'main.jsp?menuGubun=subBoard_chuga';");
+		out.println("location.href = 'main.jsp?menuGubun=subBoard_chuga&no="+no+"';");
 		out.println("</script>");
 	}
 	
