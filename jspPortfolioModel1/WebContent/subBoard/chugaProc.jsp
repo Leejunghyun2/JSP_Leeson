@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ include file="_inc_top.jsp" %>
 <%
+
+
+
 	String writer = request.getParameter("writer");
 	String email = request.getParameter("email");
 	String passwd = request.getParameter("passwd");
@@ -70,7 +73,11 @@
  	if(result > 0){
 		out.println("<script>");
 		//out.println("");
-		out.println("location.href = 'main.jsp?menuGubun=subBoard_list';");
+		if(no > 0){
+			out.println("location.href = 'main.jsp?menuGubun=subBoard_list&pageNumber="+ pageNumber +"';");
+		} else {
+			out.println("location.href = 'main.jsp?menuGubun=subBoard_list';");
+		}
 		out.println("</script>");
 	} else {
 		out.println("<script>");

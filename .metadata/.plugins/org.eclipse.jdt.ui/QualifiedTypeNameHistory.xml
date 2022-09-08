@@ -15,7 +15,6 @@
     <fullyQualifiedTypeName name="guestBook.model.dto.GuestBookDTO"/>
     <fullyQualifiedTypeName name="boardBasic.model.dto.BoardBasicDTO"/>
     <fullyQualifiedTypeName name="board.model.dto.BoardDTO"/>
-    <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="org.json.simple.JSONObject"/>
     <fullyQualifiedTypeName name="shopMall.model.dao.CartDAO"/>
     <fullyQualifiedTypeName name="shopMall.model.dto.CartDTO"/>
@@ -27,4 +26,6 @@
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="subBoard.model.dto.SubBoardDTO"/>
     <fullyQualifiedTypeName name="config.DB"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="subBoard.model.dto.BoardCommentDTO"/>
 </qualifiedTypeNameHistroy>

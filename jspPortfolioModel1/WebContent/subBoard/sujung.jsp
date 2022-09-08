@@ -19,6 +19,7 @@
 <input type="hidden" name="dbNoticeNo" value="<%=returnDto.getNoticeNo()%>">
 <input type="hidden" name="searchGubun" value="<%=searchGubun%>">
 <input type="hidden" name="searchData" value="<%=searchData%>">
+<input type="hidden" name="pageNumber" value="<%=pageNumber%>">
 <table border="1" width="80%">
 	<tr>
 		<td>작성자</td>

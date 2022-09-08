@@ -9,7 +9,26 @@
 	arguDto.setSearchData(searchData);
 	
 	SubBoardDAO dao = new SubBoardDAO();
+	
+	int pageSize = 10;
+	int blockSize = 10;
+	int totalRecord = dao.getTotalRecord(arguDto);
+	
+	int block = (pageNumber - 1) / blockSize;
+	int jj = totalRecord - pageSize * (pageNumber -1); //단지화면에보여질 일련번호
+	
+	double totalPageDou = Math.ceil(totalRecord / (double)pageSize);
+	int totalPage = (int)totalPageDou;
+	
+	int startRecord = pageSize * (pageNumber - 1) + 1;
+	int lastRecord = pageSize * pageNumber;
+	
+	arguDto.setStartRecord(startRecord);
+	arguDto.setLastRecord(lastRecord);
+	
 	ArrayList<SubBoardDTO> list = dao.getselectAll(arguDto);
+	
+	
 %>
  
 <h2>게시글 목록</h2>
@@ -32,6 +51,13 @@
 			document.searchForm.submit();
 		}
 	</script>
+</div>
+<div style="border: 0px solid red; padding-top: 20px; width: 80%;" align="left">
+	<%if(searchCheckCounter > 0){ %>
+		* 전체 목록 : <%=totalRecord %>건 
+	<%} else { %>
+		* 검색어 "<font style="color : blue;"><%=searchData %></font>" 목록 : <%=totalRecord %>건
+	<%}  %>(<%=pageNumber %> / <%=totalPage %>)
 </div>
 <table border="1" width="80%">
 	<tr>
@@ -81,7 +107,7 @@
 				}
 				%>
 				
-				<%=blankValue %><a href="#" onclick="move('subBoard_view' , '<%=dto.getNo()%>','<%=searchGubun%>','<%=searchData%>');"><%=imsiSubject %></a>
+				<%=blankValue %><a href="#" onclick="move('subBoard_view' ,'<%=pageNumber %>', '<%=dto.getNo()%>')"><%=imsiSubject %></a>
 			</td>
 			<td><%=dto.getWriter() %></td>
 			<td><%=dto.getRegiDate() %></td>
@@ -102,16 +128,73 @@
 
 <div style="border: 0px solid red; padding-top: 20px; width: 80%;" align="right">
 		|
-		<a href="#" onclick="move('subBoard_list','','','');">전체목록</a>
+		<a href="main.jsp?menuGubun=subBoard_list">전체목록</a>
 		|
-		<a href="#" onclick="move('subBoard_list','','<%=searchGubun%>','<%=searchData%>');">목록</a>
+		<a href="#" onclick="move('subBoard_list','1','<%=no%>');">목록</a>
 		|
-		<a href="#" onclick="move('subBoard_chuga','','<%=searchGubun%>','<%=searchData%>');">등록</a>
+		<a href="#" onclick="move('subBoard_chuga','<%=pageNumber %>','<%=no%>');">등록</a>
 		|
 </div>
+<%if(totalRecord > 0){ %>
+<div style="border: 0px solid red; padding-top: 20px; width: 80%;" align="center">
+	
+	<%
+		int totalBlock = totalPage / blockSize;
+		double val1 = (double)totalBlock;
+		double val2 = totalPage / blockSize;
+		if(val1 - val2 == 0){
+			totalBlock = totalBlock - 1;
+		}
+	%>
 
+
+	<a href="#" onclick="move('subBoard_list','1','')">[첫페이지]</a>
+	&nbsp;
+	<%
+		if(block > 0){
+			int imsiPage = (block-1) * blockSize + blockSize;
+	%>
+	<a href="#" onclick="move('subBoard_list','<%=imsiPage %>','<%=searchGubun%>','')">[이전10개]</a>
+	<% } else { %>	
+		이전10개
+	<%} %>
+	
+	<%
+		for(int goPage=1; goPage <= blockSize; goPage++){
+			int imsiValue = block * blockSize + goPage;
+			if(totalPage - imsiValue >= 0){
+				if(imsiValue == pageNumber){
+	%>
+					<b>[<%=imsiValue %>]</b>
+	<%
+				} else {
+	%>
+					<a href="#" onclick="move('subBoard_list','<%=imsiValue %>','');"><%=imsiValue %></a>
+	<%				
+				}
+				out.println("&nbsp;");
+			}
+		}
+	%>
+	
+	
+	&nbsp;
+	<%
+		if(block - totalBlock <= 0){
+			int yyy = (block + 1) * blockSize +1;
+		
+	%>
+	<a href="#" onclick="move('subBoard_list','<%=yyy %>','')">[다음10개]</a>
+	<%} else { %>
+	 	다음10개
+	<%} %>
+	&nbsp;
+	<a href="#" onclick="move('subBoard_list','<%=totalPage %>','')">[끝페이지]</a>
+</div>
+<%} %>
 <script>
-	function move(val1, val2, val3, val4){
-		location.href = 'main.jsp?menuGubun='+ val1 +"&no=" + val2 + "&searchGubun=" + val3 + "&searchData=" + val4;
+	function move(val1, val2, val3){
+		var imsiQueryString = '<%=imsiQueryString%>';
+		location.href = 'main.jsp?menuGubun='+ val1 +"&pageNumber=" + val2 + "&no=" + val3 + "&" + imsiQueryString;
 	}
 </script>

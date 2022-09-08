@@ -7,28 +7,101 @@ import java.util.ArrayList;
 
 import board.model.dto.BoardDTO;
 import config.DB;
+import subBoard.model.dto.BoardCommentDTO;
 import subBoard.model.dto.SubBoardDTO;
 
 public class SubBoardDAO {
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
-
-	public ArrayList<SubBoardDTO> getselectAll(SubBoardDTO paramDto) {
-		ArrayList<SubBoardDTO> list = new ArrayList<SubBoardDTO>();
+	
+	public ArrayList<BoardCommentDTO> getCommentSelectAll(BoardCommentDTO paramDto){
+		conn = DB.dbConn();
+		ArrayList<BoardCommentDTO> list = new ArrayList<BoardCommentDTO>();
+		try {
+			String sql = "select * from boardComment where boardNo = ? order by regiDate asc";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, paramDto.getBoardNo());
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				BoardCommentDTO dto = new BoardCommentDTO();
+				dto.setCommentNo(rs.getInt("commentNo"));
+				dto.setBoardNo(rs.getInt("boardNo"));
+				dto.setWriter(rs.getString("writer"));
+				dto.setPasswd(rs.getString("passwd"));
+				dto.setContent(rs.getString("content"));
+				dto.setIp(rs.getString("ip"));
+				dto.setRegiDate(rs.getDate("regiDate"));
+				list.add(dto);
+			}
+		} catch (Exception e) {
+			e.printStackTrace(); 
+		} finally {
+			DB.dbConnclose(rs, pstmt, conn);
+		}
+		return list;
+	}
+	
+	public int getTotalRecord(SubBoardDTO paramDto) {
+		int result = 0;
 		conn = DB.dbConn();
 		try {
-			String sql ="select * from board ";
+			String sql = "select count(*) counter from board where 1 = 1 ";
 			
 			if(paramDto.getSearchGubun().equals("writer_subject_content")) {
-				sql += "where (writer like ? or subject like ? or content like ?)";
+				sql += "and (writer like ? or subject like ? or content like ?)";
 			} else if(paramDto.getSearchGubun().equals("writer")|| paramDto.getSearchGubun().equals("subject") || paramDto.getSearchGubun().equals("content")){
-				sql += "where "+paramDto.getSearchGubun()+" like ?";
+				sql += "and "+paramDto.getSearchGubun()+" like ?";
+			} else {
+				
+			}
+			pstmt = conn.prepareStatement(sql);
+			
+			if(paramDto.getSearchGubun().equals("writer_subject_content")) {
+				pstmt.setString(1, "%" + paramDto.getSearchData() +"%");
+				pstmt.setString(2, "%" + paramDto.getSearchData() +"%");
+				pstmt.setString(3, "%" + paramDto.getSearchData() +"%");
+			} else if(paramDto.getSearchGubun().equals("writer")|| paramDto.getSearchGubun().equals("subject") || paramDto.getSearchGubun().equals("content")){
+				pstmt.setString(1, "%" + paramDto.getSearchData() +"%");
 			} else {
 				
 			}
 			
-			sql += "order by noticeNo desc, refNo desc, levelNo asc ";
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				result = rs.getInt("counter");
+			}
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DB.dbConnclose(rs, pstmt, conn);
+		}
+		return result;
+	}
+		
+	public ArrayList<SubBoardDTO> getselectAll(SubBoardDTO paramDto) {
+		ArrayList<SubBoardDTO> list = new ArrayList<SubBoardDTO>();
+		conn = DB.dbConn();
+		try {
+			String basicsql ="select * from board ";
+			
+			if(paramDto.getSearchGubun().equals("writer_subject_content")) {
+				basicsql += "where (writer like ? or subject like ? or content like ?)";
+			} else if(paramDto.getSearchGubun().equals("writer")|| paramDto.getSearchGubun().equals("subject") || paramDto.getSearchGubun().equals("content")){
+				basicsql += "where "+paramDto.getSearchGubun()+" like ?";
+			} else {
+				
+			}
+			
+			basicsql += "order by noticeNo desc, refNo desc, levelNo asc ";
+			
+			String sql = "";
+			sql += "select * from (select A.*, rownum rnum from(";
+			sql += basicsql;
+			sql += ") A) where rnum >= ? and rnum <= ?";
+			
 			pstmt = conn.prepareStatement(sql);
 			
 			int k = 0;
@@ -42,6 +115,9 @@ public class SubBoardDAO {
 			} else {
 				
 			}
+			
+			pstmt.setInt(++k, paramDto.getStartRecord());
+			pstmt.setInt(++k, paramDto.getLastRecord());
 			
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
@@ -188,7 +264,64 @@ public class SubBoardDAO {
 		}
 		return result;
 	}
-
+	
+	public int setCommentInsert(BoardCommentDTO paramDto) {
+		int result = 0;
+		conn = DB.dbConn();
+		try {
+			String sql= "insert into boardComment values (seq_boardComment.nextval, ?, ?, ?, ?, ?, ?, sysdate)";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, paramDto.getBoardNo());
+			pstmt.setString(2, paramDto.getWriter());
+			pstmt.setString(3, paramDto.getContent());
+			pstmt.setString(4, paramDto.getPasswd());
+			pstmt.setInt(5, paramDto.getMemberNo());
+			pstmt.setString(6, paramDto.getIp());
+			result = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DB.dbConnclose(rs, pstmt, conn);
+		}
+		return result;
+	}
+	
+	public int setCommentUpdate(BoardCommentDTO paramDto) {
+		int result = 0;
+		conn = DB.dbConn();
+		try {
+			String sql= "update boardComment set writer =?, content = ? where commentNo = ? and passwd = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, paramDto.getWriter());
+			pstmt.setString(2, paramDto.getContent());
+			pstmt.setInt(3, paramDto.getCommentNo());
+			pstmt.setString(4, paramDto.getPasswd());
+			result = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DB.dbConnclose(rs, pstmt, conn);
+		}
+		return result;
+	}
+	
+	public int setCommentDelete(BoardCommentDTO paramDto) {
+		int result = 0;
+		conn = DB.dbConn();
+		try {
+			String sql= "delete from boardComment where commentNo = ? and passwd = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, paramDto.getCommentNo());
+			pstmt.setString(2, paramDto.getPasswd());
+			result = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DB.dbConnclose(rs, pstmt, conn);
+		}
+		return result;
+	}
+	
 	public int setUpdate(SubBoardDTO paramDto) {
 		int result = 0;
 		conn = DB.dbConn();
@@ -258,6 +391,8 @@ public class SubBoardDAO {
 		}
 		return result;
 	}
+	
+	
 	
 	public void setUpdateReLevel(SubBoardDTO paramDto) {
 		conn = DB.dbConn();

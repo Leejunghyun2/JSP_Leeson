@@ -27,9 +27,25 @@ public class SubBoardDTO {
 	private String searchData;
 	
 	private int preNo;
+	private int nxtNo;
 	private String preSubject;
 	
-	private int nxtNo;
+	private int startRecord;
+	private int lastRecord;
+	
+	
+	public int getStartRecord() {
+		return startRecord;
+	}
+	public void setStartRecord(int startRecord) {
+		this.startRecord = startRecord;
+	}
+	public int getLastRecord() {
+		return lastRecord;
+	}
+	public void setLastRecord(int lastRecord) {
+		this.lastRecord = lastRecord;
+	}
 	public int getPreNo() {
 		return preNo;
 	}
@@ -184,3 +200,5 @@ public class SubBoardDTO {
 		this.attachInfo = attachInfo;
 	}
 }
+
+

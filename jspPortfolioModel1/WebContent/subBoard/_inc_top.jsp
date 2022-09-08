@@ -12,25 +12,30 @@
 
 	String no_ = request.getParameter("no");
 	no_ = util.getNullBlankCheck(no_, "0");
-
 	int no = Integer.parseInt(no_);
+	
+	String pageNumber_ = request.getParameter("pageNumber");
+	pageNumber_ = util.getNullBlankCheck(pageNumber_, "1");
+	int pageNumber = Integer.parseInt(pageNumber_);
+	
 	String searchGubun = request.getParameter("searchGubun");
 	String searchData = request.getParameter("searchData");
 	
-	int imsiCounter = 0;
+	int searchCheckCounter = 0;
 	
 	if(searchGubun == null || searchGubun.trim().equals("")){
 		searchGubun ="";
-		imsiCounter++;
+		searchCheckCounter++;
 	}
 	if(searchData == null || searchData.trim().equals("")){
 		searchData ="";
-		imsiCounter++;
+		searchCheckCounter++;
 	}
-	if(imsiCounter > 0){
+	if(searchCheckCounter > 0){
 		searchData ="";
 		searchGubun ="";
 	}
+	String imsiQueryString = "searchGubun="+searchGubun + "&searchData="+searchData;
 %>
-검색 : <%=searchGubun%> / <%=searchData%>
+검색 :<%=pageNumber %>  / <%=searchGubun%> / <%=searchData%>
 <hr>

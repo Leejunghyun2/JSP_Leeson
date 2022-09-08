@@ -5,7 +5,7 @@
 	String title = "글쓰기";
 	String imsiSubject = "";
 	String imsiContent = "";
-	
+	 
 	if(no > 0){
 		title = "답변쓰기";
 		
@@ -29,6 +29,7 @@
 <input type="hidden" name="no" value="<%=no %>">
 <input type="hidden" name="searchGubun" value="<%=searchGubun%>">
 <input type="hidden" name="searchData" value="<%=searchData%>">
+<input type="hidden" name="pageNumber" value="<%=pageNumber%>">
 <table border="1" width="80%">
 	<tr>
 		<td>작성자</td>
