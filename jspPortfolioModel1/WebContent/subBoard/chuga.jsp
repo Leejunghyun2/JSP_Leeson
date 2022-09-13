@@ -11,6 +11,7 @@
 		
 		SubBoardDTO arguDto = new SubBoardDTO();
 		arguDto.setNo(no);
+		arguDto.setTbl(tbl);
 		
 		SubBoardDAO dao = new SubBoardDAO();
 		SubBoardDTO returnDto = dao.getSelectOne(arguDto);
@@ -24,12 +25,13 @@
 		imsiContent = returnDto.getContent();
 	}
 %>
-<h2><%=title %></h2>
+<h2><%=imsiBoardTitle %> <%=title %></h2>
 <form name="DirForm">
 <input type="hidden" name="no" value="<%=no %>">
 <input type="hidden" name="searchGubun" value="<%=searchGubun%>">
 <input type="hidden" name="searchData" value="<%=searchData%>">
 <input type="hidden" name="pageNumber" value="<%=pageNumber%>">
+<input type="hidden" name="tbl" value="<%=tbl%>">
 <table border="1" width="80%">
 	<tr>
 		<td>작성자</td>

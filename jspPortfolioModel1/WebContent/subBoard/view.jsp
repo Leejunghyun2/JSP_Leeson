@@ -9,6 +9,7 @@
 	arguDto.setNo(no);
 	arguDto.setSearchGubun(searchGubun);
 	arguDto.setSearchData(searchData);
+	arguDto.setTbl(tbl);
 	
 	SubBoardDAO subBoardeDao = new SubBoardDAO();
 	SubBoardDTO returnDto = subBoardeDao.getSelectOne(arguDto);
@@ -53,7 +54,7 @@
 		}
 	</script>
 <%} else { %>
-<h2>메모상세보기</h2>
+<h2><%=imsiBoardTitle %> 상세보기</h2>
 	<table border="1" align="center" width="80%">
 		<tr>
 			<td width="150">제목 :</td>
@@ -149,7 +150,7 @@
 	</div>
 	<div style="border: 0px solid red; padding-top: 20px; width: 80%;" align="right">
 		|
-		<a href="main.jsp?menuGubun=subBoard_list">전체목록</a>
+		<a href="main.jsp?menuGubun=subBoard_list&tbl=<%=tbl%>">전체목록</a>
 		|
 		<a href="#" onclick="move('subBoard_list','1','');">목록</a>
 		|

@@ -7,6 +7,7 @@
 	SubBoardDTO arguDto = new SubBoardDTO();
 	arguDto.setSearchGubun(searchGubun);
 	arguDto.setSearchData(searchData);
+	arguDto.setTbl(tbl);
 	
 	SubBoardDAO dao = new SubBoardDAO();
 	
@@ -31,9 +32,10 @@
 	
 %>
  
-<h2>게시글 목록</h2>
+<h2><%=imsiBoardTitle %> 목록</h2>
 <div style="width: 80%;" align="left">
 	<form name="searchForm">
+		 <input type="hidden" name="tbl" value="<%=tbl %>">
 		 <select name="searchGubun">
 		 	<option value="">-- 선택 --</option>
 		 	<option value="writer" <%if(searchGubun.equals("writer")){ out.println("selected"); } %>>작성자</option>
@@ -128,7 +130,7 @@
 
 <div style="border: 0px solid red; padding-top: 20px; width: 80%;" align="right">
 		|
-		<a href="main.jsp?menuGubun=subBoard_list">전체목록</a>
+		<a href="main.jsp?menuGubun=subBoard_list&tbl=<%=tbl%>">전체목록</a>
 		|
 		<a href="#" onclick="move('subBoard_list','1','<%=no%>');">목록</a>
 		|
@@ -140,8 +142,8 @@
 	
 	<%
 		int totalBlock = totalPage / blockSize;
-		double val1 = (double)totalBlock;
-		double val2 = totalPage / blockSize;
+		double val1 = (double)totalBlock; //??
+		double val2 = totalPage / blockSize; //??
 		if(val1 - val2 == 0){
 			totalBlock = totalBlock - 1;
 		}
@@ -156,7 +158,7 @@
 	%>
 	<a href="#" onclick="move('subBoard_list','<%=imsiPage %>','<%=searchGubun%>','')">[이전10개]</a>
 	<% } else { %>	
-		이전10개
+		이전<%=blockSize %>개
 	<%} %>
 	
 	<%
@@ -186,7 +188,7 @@
 	%>
 	<a href="#" onclick="move('subBoard_list','<%=yyy %>','')">[다음10개]</a>
 	<%} else { %>
-	 	다음10개
+	 	다음<%=blockSize %>개
 	<%} %>
 	&nbsp;
 	<a href="#" onclick="move('subBoard_list','<%=totalPage %>','')">[끝페이지]</a>

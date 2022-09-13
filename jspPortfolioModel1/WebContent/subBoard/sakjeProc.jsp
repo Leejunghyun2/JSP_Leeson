@@ -26,12 +26,12 @@
  	if(result > 0){
 		out.println("<script>");
 		//out.println("");
-		out.println("location.href = 'main.jsp?menuGubun=subBoard_list&searchGubun="+searchGubun+"&searchData="+searchData+"';");
+		out.println("location.href = 'main.jsp?menuGubun=subBoard_list&tbl="+tbl+"&searchGubun="+searchGubun+"&searchData="+searchData+"';");
 		out.println("</script>");
 	} else {
 		out.println("<script>");
-		out.println("alert('수정 중 오류가 발생했습니다.')");
-		out.println("location.href = 'main.jsp?menuGubun=subBoard_sakje&pageNumber="+pageNumber+"&no="+no+"&searchGubun="+searchGubun+"&searchData="+searchData+"';");
+		out.println("alert('삭제 중 오류가 발생했습니다.')");
+		out.println("location.href = 'main.jsp?menuGubun=subBoard_sakje&tbl="+tbl+"&pageNumber="+pageNumber+"&no="+no+"&searchGubun="+searchGubun+"&searchData="+searchData+"';");
 		out.println("</script>");
 	}
 	

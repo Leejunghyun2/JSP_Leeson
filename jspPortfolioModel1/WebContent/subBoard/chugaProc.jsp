@@ -4,7 +4,7 @@
 <%
 
 
-
+	
 	String writer = request.getParameter("writer");
 	String email = request.getParameter("email");
 	String passwd = request.getParameter("passwd");
@@ -14,11 +14,11 @@
 	String secretGubun = request.getParameter("secretGubun");
 	
 	
-	
+	content = util.getCheckString(content);
 	
 	SubBoardDAO dao = new SubBoardDAO(); 
 	int num = dao.getMaxValueNumRefNoNoticeNo("num") + 1; //num필드의 최대값 + 1
-	String tbl = "-";
+	
 	
 	//새글
 	int refNo = dao.getMaxValueNumRefNoNoticeNo("refNo") + 1; //refNo 필드의 최대값 + 1
@@ -30,6 +30,8 @@
 	if(no > 0){
 		SubBoardDTO arguDto = new SubBoardDTO();
 		arguDto.setNo(no);
+		arguDto.setTbl(tbl);
+		
 		SubBoardDTO returnDto = dao.getSelectOne(arguDto);
 		
 		refNo = returnDto.getRefNo();
@@ -74,15 +76,15 @@
 		out.println("<script>");
 		//out.println("");
 		if(no > 0){
-			out.println("location.href = 'main.jsp?menuGubun=subBoard_list&pageNumber="+ pageNumber +"';");
+			out.println("location.href = 'main.jsp?menuGubun=subBoard_list&pageNumber=" + pageNumber + "&tbl=" + tbl + "';");
 		} else {
-			out.println("location.href = 'main.jsp?menuGubun=subBoard_list';");
+			out.println("location.href = 'main.jsp?menuGubun=subBoard_list&tbl=" + tbl + "';");
 		}
 		out.println("</script>");
 	} else {
 		out.println("<script>");
 		out.println("alert('등록 중 오류가 발생했습니다.')");
-		out.println("location.href = 'main.jsp?menuGubun=subBoard_chuga&no="+no+"';");
+		out.println("location.href = 'main.jsp?menuGubun=subBoard_chuga&no=" + no + "&tbl=" + tbl +"';");
 		out.println("</script>");
 	}
 	

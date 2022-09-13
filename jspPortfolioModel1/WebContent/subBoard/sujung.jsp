@@ -4,6 +4,7 @@
 <%
 	SubBoardDTO arguDto = new SubBoardDTO();
 	arguDto.setNo(no);
+	arguDto.setTbl(tbl);
 	
 	SubBoardDAO subBoardeDao = new SubBoardDAO();
 	SubBoardDTO returnDto = subBoardeDao.getSelectOne(arguDto);
@@ -16,6 +17,7 @@
 <h2>게시글수정</h2>
 <form name="sujungForm">
 <input type="hidden" name="no" value="<%=no %>">
+<input type="hidden" name="tbl" value="<%=tbl %>">
 <input type="hidden" name="dbNoticeNo" value="<%=returnDto.getNoticeNo()%>">
 <input type="hidden" name="searchGubun" value="<%=searchGubun%>">
 <input type="hidden" name="searchData" value="<%=searchData%>">

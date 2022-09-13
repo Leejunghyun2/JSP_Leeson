@@ -4,6 +4,7 @@
 <%
 	SubBoardDTO arguDto = new SubBoardDTO();
 	arguDto.setNo(no);
+	arguDto.setTbl(tbl);
 	
 	SubBoardDAO subBoardeDao = new SubBoardDAO();
 	SubBoardDTO returnDto = subBoardeDao.getSelectOne(arguDto);
@@ -15,6 +16,7 @@
 %>
 <h2>게시글삭제</h2>
 <form name="sakjeForm">
+<input type="hidden" name="tbl" value="<%=tbl %>">
 <input type="hidden" name="no" value="<%=no %>">
 <input type="hidden" name="searchGubun" value="<%=searchGubun%>">
 <input type="hidden" name="searchData" value="<%=searchData%>">
@@ -77,7 +79,7 @@
 </form>
 <script>
 	function sakje(){
-		if(confirm('수정할까요?')){
+		if(confirm('삭제할까요?')){
 			var f = document.sakjeForm;
 			f.action = "mainProc.jsp?menuGubun=subBoard_sakjeProc";
 			f.method = "post";
