@@ -428,3 +428,15 @@
 9월 13, 2022 12:17:08.446 [10840:2276:0913/121708.445:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
 9월 13, 2022 12:17:08.446 [10840:2276:0913/121708.445:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
 9월 13, 2022 14:14:06.488 [10840:2592:0913/141406.488:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+
+9월 14, 2022 11:19:10.732 NEW SESSION
+9월 14, 2022 11:19:10.732 [2040:120:0914/111910.731:ERROR:google_update_settings.cc(236)] Failed opening key Software\Google\Update\ClientStateMedium\{8A69D345-D564-463c-AFF1-A69D9E530F96} to set usagestats; result: 5
+9월 14, 2022 11:19:13.338 [2040:8772:0914/111913.338:ERROR:device_event_log_impl.cc(214)] [11:19:13.337] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+9월 14, 2022 11:19:13.341 [2040:8772:0914/111913.340:ERROR:device_event_log_impl.cc(214)] [11:19:13.340] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+9월 14, 2022 11:20:10.844 [2040:4084:0914/112010.844:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+9월 14, 2022 11:24:49.141 [2040:8772:0914/112449.141:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+9월 14, 2022 11:24:49.141 [2040:8772:0914/112449.141:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+9월 14, 2022 14:48:17.275 [2040:8772:0914/144817.275:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+9월 14, 2022 15:19:30.538 [2040:8772:0914/151930.537:ERROR:interface_endpoint_client.cc(665)] Message 0 rejected by interface blink.mojom.WidgetHost
+9월 14, 2022 16:00:23.67 [2040:8772:0914/160023.066:ERROR:interface_endpoint_client.cc(665)] Message 5 rejected by interface blink.mojom.WidgetHost
+9월 14, 2022 16:20:11.26 [2040:9536:0914/162011.026:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater

@@ -63,5 +63,5 @@
 	}
 	String imsiQueryString = "searchGubun="+searchGubun + "&searchData="+searchData + "&tbl=" + tbl;
 %>
-검색 :<%=pageNumber %>  / <%=searchGubun%> / <%=searchData%>
+검색 :<%=pageNumber %>  / <%=searchGubun%> / <%=searchData%> / <%=referer %> :::: <%=url %>
 <hr>

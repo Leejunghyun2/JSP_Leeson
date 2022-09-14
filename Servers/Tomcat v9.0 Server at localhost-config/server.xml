@@ -155,7 +155,7 @@
       <Context docBase="jspTest" path="/jspTest" reloadable="true" source="org.eclipse.jst.jee.server:jspTest"/>
       <Context docBase="/c:/LJH/attach" path="/jspPortfolioModel1/attach" reloadable="true"/>
       
-      </Host>
+      <Context docBase="hr_1234" path="/hr_1234" reloadable="true" source="org.eclipse.jst.jee.server:hr_1234"/></Host>
       
     </Engine>
   </Service>
