@@ -23,9 +23,10 @@
     <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="subBoard.model.dto.SubBoardDTO"/>
-    <fullyQualifiedTypeName name="config.DB"/>
-    <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="subBoard.model.dto.BoardCommentDTO"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="subBoard.model.dto.SubBoardChkDTO"/>
+    <fullyQualifiedTypeName name="config.DB"/>
 </qualifiedTypeNameHistroy>
