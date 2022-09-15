@@ -20,13 +20,17 @@
     <fullyQualifiedTypeName name="shopMall.model.dto.CartDTO"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="org.json.simple.JSONArray"/>
-    <fullyQualifiedTypeName name="java.sql.Connection"/>
-    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="subBoard.model.dto.SubBoardDTO"/>
     <fullyQualifiedTypeName name="subBoard.model.dto.BoardCommentDTO"/>
     <fullyQualifiedTypeName name="java.sql.Date"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="subBoard.model.dto.SubBoardChkDTO"/>
     <fullyQualifiedTypeName name="config.DB"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="config.Db"/>
+    <fullyQualifiedTypeName name="member.model.dto.DTO"/>
+    <fullyQualifiedTypeName name="member.model.dto.ProductDTO"/>
+    <fullyQualifiedTypeName name="member.model.dto.SjDTO"/>
 </qualifiedTypeNameHistroy>

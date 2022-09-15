@@ -13,6 +13,7 @@
 	String mun_4_ = request.getParameter("mun_4");
 	String mun_5_ = request.getParameter("mun_5");
 	
+	String[] jungdab = {"1","2","3","4","3"};
 	int jumsu = 0;
 	
 	int mun_1 = Integer.parseInt(mun_1_);	
@@ -21,7 +22,6 @@
 	int mun_4 = Integer.parseInt(mun_4_);	
 	int mun_5 = Integer.parseInt(mun_5_);
 	
-	String[] jungdab = {"1","2","3","4","3"};
 	
 	String mun_ox_1 = mun_1 +" (X)";
 	String mun_ox_2 = mun_2 +" (X)";
@@ -89,6 +89,5 @@
 		out.println("location.href = 'sj.jsp'");
 		out.println("</script>");
 	}
-	
 	
 %>
