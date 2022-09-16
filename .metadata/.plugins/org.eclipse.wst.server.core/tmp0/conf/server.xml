@@ -155,7 +155,7 @@
       <Context docBase="C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\jspTest" path="/jspTest" reloadable="true" source="org.eclipse.jst.jee.server:jspTest"/>
       <Context docBase="/c:/LJH/attach" path="/jspPortfolioModel1/attach" reloadable="true"/>
       
-      <Context docBase="C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\hr_1234" path="/hr_1234" reloadable="true" source="org.eclipse.jst.jee.server:hr_1234"/><Context docBase="C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\srv_pg_impl" path="/srv_pg_impl" reloadable="true" source="org.eclipse.jst.jee.server:srv_pg_impl"/></Host>
+      <Context docBase="C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\hr_1234" path="/hr_1234" reloadable="true" source="org.eclipse.jst.jee.server:hr_1234"/><Context docBase="C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\srv_pg_impl" path="/srv_pg_impl" reloadable="true" source="org.eclipse.jst.jee.server:srv_pg_impl"/><Context docBase="C:\LJH\workspace\jsp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\jspStudyModel2" path="/jspStudyModel2" reloadable="true" source="org.eclipse.jst.jee.server:jspStudyModel2"/></Host>
       
     </Engine>
   </Service>
