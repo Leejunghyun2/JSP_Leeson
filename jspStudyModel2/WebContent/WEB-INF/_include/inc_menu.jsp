@@ -30,4 +30,11 @@
 &nbsp;
 <a href="/jspStudyModel2/exam_servlet/attachFor.do">attach(for)</a>
 &nbsp;
+<br>
+<a href="/jspStudyModel2/haksaStudent_servlet/list.do">학사관리(학생)</a>
+&nbsp;
+<a href="/jspStudyModel2/haksaSihum_servlet/list.do">학사관리(시험)</a>
+&nbsp;
+<a href="/jspStudyModel2/exam_servlet/list.do">학사관리(성적)</a>
+&nbsp;
 <hr>
