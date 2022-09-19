@@ -20,4 +20,14 @@
 &nbsp;
 <a href="/jspStudyModel2/exam_servlet/09.do">exam09</a>
 &nbsp;
+<a href="/jspStudyModel2/exam_servlet/json1.do">json1</a>
+&nbsp;
+<a href="/jspStudyModel2/exam_servlet/json2.do">json2</a>
+&nbsp;
+<a href="/jspStudyModel2/exam_servlet/attach1.do">attach1</a>
+&nbsp;
+<a href="/jspStudyModel2/exam_servlet/attachWhile.do">attach(while)</a>
+&nbsp;
+<a href="/jspStudyModel2/exam_servlet/attachFor.do">attach(for)</a>
+&nbsp;
 <hr>

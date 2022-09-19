@@ -1,7 +1,10 @@
 package _test_exam.controller;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,6 +15,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.tika.Tika;
+import org.json.simple.JSONObject;
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
+import _common.Constants;
+import _common.Util;
 
 @WebServlet("/exam_servlet/*")
 public class ExamController extends HttpServlet {
@@ -28,6 +39,7 @@ public class ExamController extends HttpServlet {
 	protected void doProc(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		
+		Util util = new Util();
 		String path = request.getContextPath();
 		String url = request.getRequestURL().toString();
 		String uri = request.getRequestURI().toString();
@@ -40,6 +52,8 @@ public class ExamController extends HttpServlet {
 		String imsiUriFileName = imsiUriArray[imsiUriArray.length - 1];
 		
 		String forwardPage = "/WEB-INF/_test/exam/";
+		request.setAttribute("path", path);
+		
 		
 		if(imsiUriFileName.equals("01.do")) {  //indexof 는 없으면 -1
 			RequestDispatcher rd = request.getRequestDispatcher(forwardPage+"01.jsp");
@@ -241,7 +255,279 @@ public class ExamController extends HttpServlet {
 			request.setAttribute("op", "readonly");
 			RequestDispatcher rd = request.getRequestDispatcher(forwardPage+"07Result.jsp");
 			rd.forward(request, response);
+		} else if(imsiUriFileName.equals("json1.do")){
+			RequestDispatcher rd = request.getRequestDispatcher(forwardPage+"json1.jsp");
+			rd.forward(request, response);
+		} else if(imsiUriFileName.equals("join1Proc.do")){	
+			String id = request.getParameter("id");
+			String passwd = request.getParameter("passwd");
+			String name = request.getParameter("name");
+			String age_ = request.getParameter("age");
+			int age = Integer.parseInt(age_);
 			
+			JSONObject jsonObject = new JSONObject();//import org.json.simple.JSONObject;
+			jsonObject.put("id", id);
+			jsonObject.put("passwd", passwd);
+			jsonObject.put("name", name);
+			jsonObject.put("age", age);
+			
+			String jsonMember = jsonObject.toString();
+			System.out.println("1");
+			response.setContentType("text/html; charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.println(jsonMember);
+			out.flush();
+			out.close();
+		} else if(imsiUriFileName.equals("json2.do")){
+			RequestDispatcher rd = request.getRequestDispatcher(forwardPage+"json2.jsp");
+			rd.forward(request, response);
+		} else if(imsiUriFileName.equals("join2Proc.do")){		
+			String name = request.getParameter("name");
+			String kor_ = request.getParameter("kor");
+			String eng_ = request.getParameter("eng");
+			String mat_ = request.getParameter("mat");
+			String sci_ = request.getParameter("sci");
+			String his_ = request.getParameter("his");
+			
+			int kor = Integer.parseInt(kor_);
+			int eng = Integer.parseInt(eng_);
+			int mat = Integer.parseInt(mat_);
+			int sci = Integer.parseInt(sci_);
+			int his = Integer.parseInt(his_);
+			
+			int tot = kor + eng + mat + sci + his;
+			double avg = tot/5.0;
+			
+			JSONObject jsonObject = new JSONObject();//import org.json.simple.JSONObject;
+			jsonObject.put("name", name);
+			jsonObject.put("kor", kor);
+			jsonObject.put("eng", eng);
+			jsonObject.put("mat", mat);
+			jsonObject.put("sci", sci);
+			jsonObject.put("his", his);
+			jsonObject.put("tot", tot);
+			jsonObject.put("avg", avg);
+			
+			String jsonMember = jsonObject.toString();
+			response.setContentType("text/html; charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.println(jsonMember);
+			out.flush();
+			out.close();
+		} else if(imsiUriFileName.equals("attach1.do")){
+			
+			RequestDispatcher rd = request.getRequestDispatcher(forwardPage+"attach1.jsp");
+			rd.forward(request, response);
+		} else if(imsiUriFileName.equals("attach1Proc.do")){
+			String attachPath = Constants.ATTACH_PATH;
+			int maxUpload = Constants.MAX_UPLOAD;
+			
+			String uploadPath = attachPath + path +"/test";
+			
+			MultipartRequest multi = new MultipartRequest(
+					request,
+					uploadPath,
+					maxUpload,
+					"utf-8",
+					new DefaultFileRenamePolicy()
+			); 
+			
+			String memo = multi.getParameter("memo");
+			System.out.println(memo);
+			
+			String originalName = "-";
+			String saveName = "-";
+			long fileSize = 0;
+			String fileType ="-";
+			String mimeType = "-";
+			
+			
+			File file_1 = multi.getFile("file_1");
+			
+			if(file_1 != null) { //첨부파일 있을시
+				originalName = multi.getOriginalFileName("file_1");
+				saveName = multi.getFilesystemName("file_1");
+				fileSize = file_1.length();
+				fileType = multi.getContentType("file_1");
+				
+				Tika tika = new Tika();
+				mimeType = tika.detect(file_1);
+				
+				String ext = saveName.substring(saveName.lastIndexOf(".") + 1);
+				String newSaveName = util.getDateTime()+ "_" +util.createUuid() + "." + ext;
+				if(fileType.equals(mimeType)) {
+					File newFile = new File(uploadPath + "/" + newSaveName);
+					file_1.renameTo(newFile);
+					saveName = newSaveName;
+				} else {
+					file_1.delete();
+					originalName = "-";
+					saveName = "-";
+					fileSize = 0;
+					fileType ="-";
+					mimeType = "-";
+				}
+			}
+			String attachInfo = "";
+			attachInfo += originalName + "|";
+			attachInfo += saveName + "|";
+			attachInfo += fileSize + "|";
+			attachInfo += fileType + "|";
+			attachInfo += mimeType;
+			System.out.println(attachInfo);
+			
+			response.sendRedirect(path + "/exam_servlet/attach1.do");
+		} else if(imsiUriFileName.equals("attachWhile.do")){
+			RequestDispatcher rd = request.getRequestDispatcher(forwardPage+"attachWhile.jsp");
+			rd.forward(request, response);
+		} else if(imsiUriFileName.equals("attachWhileProc.do")){
+			String attachPath = Constants.ATTACH_PATH;
+			int maxUpload = Constants.MAX_UPLOAD;
+			
+			String uploadPath = attachPath + path +"/test";
+			MultipartRequest multi = new MultipartRequest(
+					request,
+					uploadPath,
+					maxUpload,
+					"utf-8",
+					new DefaultFileRenamePolicy()
+			); 
+			
+			String attachCounter_ = multi.getParameter("attachCounter");
+			int attachCounter = Integer.parseInt(attachCounter_);
+			String[] array = new String[attachCounter];
+			
+			Enumeration files = multi.getFileNames();//첨부파일 집합
+			while(files.hasMoreElements()) {
+				String originalName = "-";
+				String saveName = "-";
+				long fileSize = 0;
+				String fileType ="-";
+				String mimeType = "-";
+				
+				String tagName = (String) files.nextElement();
+				File f1 = multi.getFile(tagName);
+				if(f1 != null) {
+					originalName = multi.getOriginalFileName(tagName);
+					saveName = multi.getFilesystemName(tagName);
+					fileSize = f1.length();
+					fileType = multi.getContentType(tagName);
+					
+					Tika tika = new Tika();
+					mimeType = tika.detect(f1);
+					
+					String ext = saveName.substring(saveName.lastIndexOf(".") + 1);
+					String newSaveName = util.getDateTime()+ "_" +util.createUuid() + "." + ext;
+					if(fileType.equals(mimeType)) {
+						File newFile = new File(uploadPath + "/" + newSaveName);
+						f1.renameTo(newFile);
+						saveName = newSaveName;
+					} else {
+						f1.delete();
+						originalName = "-";
+						saveName = "-";
+						fileSize = 0;
+						fileType ="-";
+						mimeType = "-";
+					}
+				}
+				
+				String attachInfo = "";
+				attachInfo += originalName + "|";
+				attachInfo += saveName + "|";
+				attachInfo += fileSize + "|";
+				attachInfo += fileType + "|";
+				attachInfo += mimeType;
+				
+				int idx = Integer.parseInt(tagName);
+				array[idx] = attachInfo;
+			}
+			
+			String dispInfo = "";
+			for(int i=0; i<array.length; i++) {
+				dispInfo += "," + array[i];
+				System.out.println(array[i]);
+			}
+			dispInfo = dispInfo.substring(1);
+			System.out.println(dispInfo);
+			
+			response.sendRedirect(path + "/exam_servlet/attachWhile.do");
+		} else if(imsiUriFileName.equals("attachFor.do")){
+			RequestDispatcher rd = request.getRequestDispatcher(forwardPage+"attachFor.jsp");
+			rd.forward(request, response);
+			
+		} else if(imsiUriFileName.equals("attachForProc.do")){
+			String attachPath = Constants.ATTACH_PATH;
+			int maxUpload = Constants.MAX_UPLOAD;
+			
+			String uploadPath = attachPath + path +"/test";
+			MultipartRequest multi = new MultipartRequest(
+					request,
+					uploadPath,
+					maxUpload,
+					"utf-8",
+					new DefaultFileRenamePolicy()
+			); 
+			
+			String attachCounter_ = multi.getParameter("attachCounter");
+			int attachCounter = Integer.parseInt(attachCounter_);
+			String[] array = new String[attachCounter];
+			
+			for(int i=0; i<array.length;i++) {
+				String originalName = "-";
+				String saveName = "-";
+				long fileSize = 0;
+				String fileType ="-";
+				String mimeType = "-";
+				
+				String tagName = "file_" + i;
+				File f1 = multi.getFile(tagName);
+				if(f1 != null) {
+					originalName = multi.getOriginalFileName(tagName);
+					saveName = multi.getFilesystemName(tagName);
+					fileSize = f1.length();
+					fileType = multi.getContentType(tagName);
+					
+					Tika tika = new Tika();
+					mimeType = tika.detect(f1);
+					
+					String ext = saveName.substring(saveName.lastIndexOf(".") + 1);
+					String newSaveName = util.getDateTime()+ "_" +util.createUuid() + "." + ext;
+					if(fileType.equals(mimeType)) {
+						File newFile = new File(uploadPath + "/" + newSaveName);
+						f1.renameTo(newFile);
+						saveName = newSaveName;
+					} else {
+						f1.delete();
+						originalName = "-";
+						saveName = "-";
+						fileSize = 0;
+						fileType ="-";
+						mimeType = "-";
+					}
+				}
+				
+				String attachInfo = "";
+				attachInfo += originalName + "|";
+				attachInfo += saveName + "|";
+				attachInfo += fileSize + "|";
+				attachInfo += fileType + "|";
+				attachInfo += mimeType;
+				
+				String idx_ = tagName.replace("file_" , "");
+				int idx = Integer.parseInt(idx_);
+				array[idx] = attachInfo;
+			}
+			
+			String dispInfo = "";
+			for(int i=0; i<array.length; i++) {
+				dispInfo += "," + array[i];
+				System.out.println(array[i]);
+			}
+			dispInfo = dispInfo.substring(1);
+			System.out.println(dispInfo);
+			
+			response.sendRedirect(path + "/exam_servlet/attachFor.do");	
 		} else {
 			System.out.println("없네");
 		}
