@@ -22,18 +22,13 @@
     <fullyQualifiedTypeName name="org.json.simple.JSONArray"/>
     <fullyQualifiedTypeName name="subBoard.model.dto.SubBoardDTO"/>
     <fullyQualifiedTypeName name="subBoard.model.dto.BoardCommentDTO"/>
-    <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="subBoard.model.dto.SubBoardChkDTO"/>
     <fullyQualifiedTypeName name="config.DB"/>
-    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
-    <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="config.Db"/>
     <fullyQualifiedTypeName name="member.model.dto.DTO"/>
     <fullyQualifiedTypeName name="member.model.dto.ProductDTO"/>
     <fullyQualifiedTypeName name="member.model.dto.SjDTO"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
     <fullyQualifiedTypeName name="java.util.Map"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
@@ -46,7 +41,17 @@
     <fullyQualifiedTypeName name="org.apache.tika.Tika"/>
     <fullyQualifiedTypeName name="java.util.UUID"/>
     <fullyQualifiedTypeName name="_common.Util"/>
-    <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="java.util.Calendar"/>
     <fullyQualifiedTypeName name="java.util.Enumeration"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="haksa.model.dto.StudentDTO"/>
+    <fullyQualifiedTypeName name="haksa.model.dao.StudentDAO"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="_common.DB"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="haksa.model.dao.SihumDAO"/>
+    <fullyQualifiedTypeName name="haksa.model.dto.SihumDTO"/>
 </qualifiedTypeNameHistroy>

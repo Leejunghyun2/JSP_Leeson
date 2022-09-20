@@ -6,6 +6,34 @@ import java.util.UUID;
 
 public class Util {
 	
+	public int getNumberCheck(String str, int defaultStr) {
+		int result = 0;
+		
+		String temp = str;
+		
+		if(temp == null || temp.trim().equals("")) {
+			temp = "-";
+		}
+		for(int i=0; i<=9; i++) {
+			temp = temp.replace(i + "", "");
+		}
+		if(temp.equals("")) {//숫자로만 구성된
+			result = Integer.parseInt(str);
+		} else {
+			result = defaultStr;
+		}
+		
+		return result;
+	}
+	
+	public String getNullBlankCheck(String str) {
+		String result = str;
+		if(str == null || str.trim().equals("")) {
+			result = "";
+		}
+		return result;
+	}
+	
 	public int[] getCalendar() {
 		Calendar cal = Calendar.getInstance();
 		

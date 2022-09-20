@@ -35,6 +35,6 @@
 &nbsp;
 <a href="/jspStudyModel2/haksaSihum_servlet/list.do">학사관리(시험)</a>
 &nbsp;
-<a href="/jspStudyModel2/exam_servlet/list.do">학사관리(성적)</a>
+<a href="/jspStudyModel2/haksaSungjuk_servlet/list.do">학사관리(성적)</a>
 &nbsp;
 <hr>
