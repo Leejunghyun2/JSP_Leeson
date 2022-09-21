@@ -18,8 +18,12 @@
 			<td>${dto.hakbun }</td>
 		</tr>
 		<tr>
+			<td>이름</td>
+			<td>${dto.name }</td>
+		</tr>
+		<tr>
 			<td>시험</td>
-			<td>${dto.sihumNo }</td>
+			<td>${dto.sihumName }</td>
 		</tr>
 		<tr>
 			<td>국어</td>

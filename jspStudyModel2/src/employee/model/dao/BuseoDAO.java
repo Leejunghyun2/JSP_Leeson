@@ -1,4 +1,4 @@
-package haksa.model.dao;
+package employee.model.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,56 +6,47 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import _common.DB;
-import haksa.model.dto.SihumDTO;
+import employee.model.dto.BuseoDTO;
 
-public class SihumDAO {
+public class BuseoDAO {
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
-	
-	public ArrayList<SihumDTO> getSelectAll(){
-		ArrayList<SihumDTO> list = new ArrayList<SihumDTO>();
+	public ArrayList<BuseoDTO> getSelectAll() {
+		ArrayList<BuseoDTO> list = new ArrayList<BuseoDTO>();
 		conn = DB.dbConn();
 		try {
-			String sql = "select * from haksaSihum";
-			sql += " order by sihumNo desc";
+			String sql = "select * from buseo order by buseoNo desc";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				SihumDTO dto = new SihumDTO();
-				dto.setSihumNo(rs.getInt("sihumNo"));
-				dto.setSihumName(rs.getString("sihumName"));
-				dto.setSihumDate(rs.getDate("sihumDate"));
+				BuseoDTO dto = new BuseoDTO();
+				dto.setBuseoNo(rs.getInt("buseoNo"));
+				dto.setBuseoName(rs.getString("buseoName"));
 				dto.setRegiDate(rs.getDate("regiDate"));
 				list.add(dto);
 			}
-			
-			
+					
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			DB.dbConnClose(rs, pstmt, conn);
 		}
-		
 		return list;
 	}
-	
-	public SihumDTO getSelectOne(SihumDTO paramDto) {
-		SihumDTO dto = new SihumDTO();
+
+	public BuseoDTO getSelectOne(BuseoDTO paramDto) {
+		BuseoDTO dto = new BuseoDTO();
 		conn = DB.dbConn();
 		try {
-			String sql = "select * from haksaSihum where sihumNo = ? order by sihumNo desc";
+			String sql = "select * from buseo order by buseoNo desc";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, paramDto.getSihumNo());
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				dto.setSihumNo(rs.getInt("sihumNo"));
-				dto.setSihumName(rs.getString("sihumName"));
-				dto.setSihumDate(rs.getDate("sihumDate"));
+				dto.setBuseoNo(rs.getInt("buseoNo"));
+				dto.setBuseoName(rs.getString("buseoName"));
 				dto.setRegiDate(rs.getDate("regiDate"));
 			}
-			
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -63,15 +54,14 @@ public class SihumDAO {
 		}
 		return dto;
 	}
-	
-	public int setInsert(SihumDTO paramDto) {
+
+	public int setInsert(BuseoDTO paramDto) {
 		int result = 0;
 		conn = DB.dbConn();
 		try {
-			String sql = "insert into haksaSihum values(seq_haksaSihum.nextval, ?, ?, sysdate)";
+			String sql = "insert into buseo values (seq_buseo.nextval, ?, sysdate)";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, paramDto.getSihumName());
-			pstmt.setDate(2, paramDto.getSihumDate());
+			pstmt.setString(1, paramDto.getBuseoName());
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -80,16 +70,15 @@ public class SihumDAO {
 		}
 		return result;
 	}
-	
-	public int setUpdate(SihumDTO paramDto) {
+
+	public int setUpdate(BuseoDTO paramDto) {
 		int result = 0;
 		conn = DB.dbConn();
 		try {
-			String sql = "update haksaSihum set sihumName = ?, sihumDate = ? where sihumNo = ?";
+			String sql = "update buseo set buseoName = ? where buseoNo = ? ";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, paramDto.getSihumName());
-			pstmt.setDate(2, paramDto.getSihumDate());
-			pstmt.setInt(3, paramDto.getSihumNo());
+			pstmt.setString(1, paramDto.getBuseoName());
+			pstmt.setInt(2, paramDto.getBuseoNo());
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -98,14 +87,14 @@ public class SihumDAO {
 		}
 		return result;
 	}
-	
-	public int setDelete(SihumDTO paramDto) {
+
+	public int setDelete(BuseoDTO paramDto) {
 		int result = 0;
 		conn = DB.dbConn();
 		try {
-			String sql = "delete from haksaSihum where sihumNo = ?";
+			String sql = "delete from buseo where buseoNo = ? ";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, paramDto.getSihumNo());
+			pstmt.setInt(1, paramDto.getBuseoNo());
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -114,4 +103,5 @@ public class SihumDAO {
 		}
 		return result;
 	}
+
 }

@@ -8,6 +8,22 @@ public class SihumDTO {
 	private Date sihumDate;
 	private Date regiDate;
 	
+	private int hakbun;
+	private String name;
+	
+	
+	public int getHakbun() {
+		return hakbun;
+	}
+	public void setHakbun(int hakbun) {
+		this.hakbun = hakbun;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public int getSihumNo() {
 		return sihumNo;
 	}

@@ -37,4 +37,8 @@
 &nbsp;
 <a href="/jspStudyModel2/haksaSungjuk_servlet/list.do">학사관리(성적)</a>
 &nbsp;
+<a href="/jspStudyModel2/employee_servlet/list.do">직원관리</a>
+&nbsp;
+<a href="/jspStudyModel2/buseo_servlet/list.do">부서관리</a>
+&nbsp;
 <hr>

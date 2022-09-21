@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file = "../../../_include/inc_header.jsp" %>      
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,20 +7,29 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@ include file = "../../../_include/inc_header.jsp" %>      
 <%@ include file = "../../../_include/inc_menu.jsp" %>
 <h2>학사관리(학생등록)</h2>
 <form name="DirForm">
 	<table border="1">
 		<tr>
 			<td>학번</td>
-			<td><input type="text" name="hakbun"></td>
+			<td>
+				<select name="hakbun">
+				<option value="">-- 선택 --</option>
+				<c:forEach var="str1" items="${hakbunList }">
+					<option value="${str1.hakbun }">${str1.name }</option>
+				</c:forEach>
+				</select>
+			</td>
 		</tr>
 		<tr>
 			<td>시험</td>
 			<td>
 				<select name="sihumNo">
-				<c:forEach var="str" items="${list }">
-					<option value="${str.sihumNo }">${str.sihumName }</option>
+				<option value="">-- 선택 --</option>
+				<c:forEach var="str2" items="${sihumList }">
+					<option value="${str2.sihumNo }">${str2.sihumName }</option>
 				</c:forEach>
 				</select>
 			</td>

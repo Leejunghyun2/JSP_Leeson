@@ -72,9 +72,12 @@ public class SungjuckController extends HttpServlet {
 		} else if(imsiUriFileName.equals("chuga.do")) {
 			
 			SihumDAO dao = new SihumDAO();
-			ArrayList<SihumDTO> list = dao.getSelectAll();
+			ArrayList<SihumDTO> sihumList = dao.getSelectAll();
+			SungjukDAO dao2 = new SungjukDAO();
+			ArrayList<SungjukDTO> hakbunList = dao2.getSelectAll();
 			
-			request.setAttribute("list", list);
+			request.setAttribute("sihumList", sihumList);
+			request.setAttribute("hakbunList", hakbunList);
 			forwardPage += "chuga.jsp";
 			RequestDispatcher rd = request.getRequestDispatcher(forwardPage);
 			rd.forward(request, response);

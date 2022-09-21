@@ -46,12 +46,16 @@
     <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="haksa.model.dto.StudentDTO"/>
     <fullyQualifiedTypeName name="haksa.model.dao.StudentDAO"/>
-    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
-    <fullyQualifiedTypeName name="java.sql.Connection"/>
-    <fullyQualifiedTypeName name="_common.DB"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="haksa.model.dao.SihumDAO"/>
     <fullyQualifiedTypeName name="haksa.model.dto.SihumDTO"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="employee.model.dto.EmployeeDTO"/>
+    <fullyQualifiedTypeName name="employee.model.dao.EmployeeDAO"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="_common.DB"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="employee.model.dao.BuseoDAO"/>
+    <fullyQualifiedTypeName name="employee.model.dto.BuseoDTO"/>
 </qualifiedTypeNameHistroy>
