@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="memberBasic.MemberBasicDTO"/>
-    <fullyQualifiedTypeName name="book.model.dto.BookDTO"/>
-    <fullyQualifiedTypeName name="bookProfile.model.dto.BookProfileDTO"/>
-    <fullyQualifiedTypeName name="bookInfo.model.dto.BookInfoDTO"/>
-    <fullyQualifiedTypeName name="bookAuthor.model.dto.BookAuthorDTO"/>
-    <fullyQualifiedTypeName name="haksaMember.model.dto.HaksaMemberDTO"/>
-    <fullyQualifiedTypeName name="haksaSihum.model.dto.HaksaSihumDTO"/>
-    <fullyQualifiedTypeName name="haksaSungjuk.model.dto.HaksaSungjukDTO"/>
-    <fullyQualifiedTypeName name="java.lang.Character"/>
-    <fullyQualifiedTypeName name="member.model.dto.MemberDTO"/>
     <fullyQualifiedTypeName name="java.sql.DriverManager"/>
     <fullyQualifiedTypeName name="memo.model.dto.MemoDTO"/>
     <fullyQualifiedTypeName name="guestBook.model.dto.GuestBookDTO"/>
@@ -29,7 +19,6 @@
     <fullyQualifiedTypeName name="member.model.dto.ProductDTO"/>
     <fullyQualifiedTypeName name="member.model.dto.SjDTO"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
-    <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
     <fullyQualifiedTypeName name="java.util.Map"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
     <fullyQualifiedTypeName name="java.io.PrintWriter"/>
@@ -48,14 +37,27 @@
     <fullyQualifiedTypeName name="haksa.model.dao.StudentDAO"/>
     <fullyQualifiedTypeName name="haksa.model.dao.SihumDAO"/>
     <fullyQualifiedTypeName name="haksa.model.dto.SihumDTO"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="employee.model.dto.EmployeeDTO"/>
     <fullyQualifiedTypeName name="employee.model.dao.EmployeeDAO"/>
-    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-    <fullyQualifiedTypeName name="java.sql.Connection"/>
-    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="_common.DB"/>
-    <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="employee.model.dao.BuseoDAO"/>
     <fullyQualifiedTypeName name="employee.model.dto.BuseoDTO"/>
+    <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
+    <fullyQualifiedTypeName name="org.bouncycastle.cert.ocsp.Req"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+    <fullyQualifiedTypeName name="java.net.UnknownHostException"/>
+    <fullyQualifiedTypeName name="java.net.Inet4Address"/>
+    <fullyQualifiedTypeName name="project.common.Util"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="project.common.DB"/>
+    <fullyQualifiedTypeName name="project.member.model.dao.MemberDAO"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="project.member.model.dto.MemberDTO"/>
+    <fullyQualifiedTypeName name="sun.jvm.hotspot.tools.SysPropsDumper"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="project.memo.model.dao.MemoDAO"/>
+    <fullyQualifiedTypeName name="java.net.URLDecoder"/>
+    <fullyQualifiedTypeName name="java.net.URLEncoder"/>
 </qualifiedTypeNameHistroy>

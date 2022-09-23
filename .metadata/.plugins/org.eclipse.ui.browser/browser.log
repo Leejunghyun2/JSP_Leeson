@@ -490,3 +490,17 @@
 9월 21, 2022 10:59:47.119 [2892:12648:0921/105947.104:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
 9월 21, 2022 11:02:18.362 [2892:11080:0921/110218.362:ERROR:device_event_log_impl.cc(214)] [11:02:18.362] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
 9월 21, 2022 15:59:47.588 [2892:12512:0921/155947.586:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+
+9월 22, 2022 09:10:32.758 NEW SESSION
+9월 22, 2022 09:10:32.758 [12572:6124:0922/091032.756:ERROR:google_update_settings.cc(236)] Failed opening key Software\Google\Update\ClientStateMedium\{8A69D345-D564-463c-AFF1-A69D9E530F96} to set usagestats; result: 5
+9월 22, 2022 09:10:35.911 [12572:12996:0922/091035.911:ERROR:device_event_log_impl.cc(214)] [09:10:35.911] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+9월 22, 2022 09:10:35.915 [12572:12996:0922/091035.915:ERROR:device_event_log_impl.cc(214)] [09:10:35.915] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+9월 22, 2022 09:11:32.846 [12572:7888:0922/091132.846:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+9월 22, 2022 14:11:33.614 [12572:13224:0922/141133.613:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+
+9월 23, 2022 10:16:48.522 NEW SESSION
+9월 23, 2022 10:16:48.522 [5116:13172:0923/101648.521:ERROR:google_update_settings.cc(236)] Failed opening key Software\Google\Update\ClientStateMedium\{8A69D345-D564-463c-AFF1-A69D9E530F96} to set usagestats; result: 5
+9월 23, 2022 10:16:51.96 [5116:9908:0923/101651.096:ERROR:device_event_log_impl.cc(214)] [10:16:51.096] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+9월 23, 2022 10:16:51.97 [5116:9908:0923/101651.097:ERROR:device_event_log_impl.cc(214)] [10:16:51.097] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+9월 23, 2022 10:17:48.653 [5116:7036:0923/101748.652:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+9월 23, 2022 15:17:48.654 [5116:11424:0923/151748.652:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
