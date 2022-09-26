@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.bouncycastle.cert.ocsp.Req;
 
@@ -150,7 +151,30 @@ public class Util {
 		 result = result.replace("'", "&apos;");
 		 return result;
 	}
-
+	
+	public String[] getSessionCheck(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		String[] result = new String[3];
+		
+		int sessionNo = 0;
+		String sessionId = "";
+		String sessionName = "";
+		if(session.getAttribute("sessionNo") != null) {
+			sessionNo = (Integer)session.getAttribute("sessionNo");
+		}
+		if(session.getAttribute("sessionNo") != null) {
+			sessionId = (String)session.getAttribute("sessionId");
+		}
+		if(session.getAttribute("sessionNo") != null) {
+			sessionName = (String)session.getAttribute("sessionName");
+		}
+		
+		
+		result[0] = sessionNo + "";
+		result[1] = sessionId;
+		result[2] = sessionName;
+		return result;
+	}
 	public String createUuid() {
 		return UUID.randomUUID().toString();
 	}

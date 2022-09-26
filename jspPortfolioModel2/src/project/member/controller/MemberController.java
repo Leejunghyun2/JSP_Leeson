@@ -1,10 +1,12 @@
 package project.member.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 
+import javax.mail.Session;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -47,6 +49,23 @@ public class MemberController extends HttpServlet {
 		request.setAttribute("ip", ip);
 		request.setAttribute("folderName", folderName);
 		request.setAttribute("fileName", fileName + ".jsp");  // main안에서 이루어지기위해 매개변수를 날림
+		
+		String[] sessionArray = util.getSessionCheck(request);
+		int sessionNo = Integer.parseInt(sessionArray[0]);
+		String sessionId = sessionArray[1];
+		String sessionName = sessionArray[2];
+		
+		if(sessionNo <= 0 ) { //로그인 안한 상태
+			response.setContentType("text/html; charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('로그인 후 이용 해주세요')");
+			out.println("location.href = '" + path + "';");
+			out.println("</script>");
+			return;
+		}
+		
+		
 		
 		String pageNumber_ = request.getParameter("pageNumber");
 		String searchGubun = request.getParameter("searchGubun");
@@ -148,17 +167,24 @@ public class MemberController extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher(forwardPage);
 			rd.forward(request, response);
 		} else if(fileName.equals("chuga")) {
+			
+			
 			RequestDispatcher rd = request.getRequestDispatcher(forwardPage);
 			rd.forward(request, response);
 		} else if(fileName.equals("sujung")) {
 			String no_ = request.getParameter("no");
 			int no = util.getNumberCheck(no_, 0);
 			
+			if(sessionNo > 0 && no == 0) {
+				no = sessionNo;
+			}
 			MemberDTO arguDto = new MemberDTO();
 			arguDto.setNo(no);
 			if(no == 0 ) {
 				return;
 			}
+			arguDto.setSearchData(searchData);
+	        arguDto.setSearchGubun(searchGubun);
 			MemberDAO memberDao = new MemberDAO();
 			MemberDTO resultDto = memberDao.getSelectOne(arguDto);
 			
@@ -170,11 +196,16 @@ public class MemberController extends HttpServlet {
 			String no_ = request.getParameter("no");
 			int no = util.getNumberCheck(no_, 0);
 			
+			if(sessionNo > 0 && no == 0) {
+				no = sessionNo;
+			}
 			MemberDTO arguDto = new MemberDTO();
 			arguDto.setNo(no);
 			if(no == 0 ) {
 				return;
 			}
+			arguDto.setSearchData(searchData);
+	        arguDto.setSearchGubun(searchGubun);
 			MemberDAO memberDao = new MemberDAO();
 			MemberDTO resultDto = memberDao.getSelectOne(arguDto);
 			
@@ -206,9 +237,10 @@ public class MemberController extends HttpServlet {
 			String address = request.getParameter("address");
 			String detailAddress = request.getParameter("detailAddress");
 			String extraAddress = request.getParameter("extraAddress");
-			
+			String tempId = request.getParameter("tempId");
 			//null, 공백값 체크
 			id = util.getNullBlankCheck(id);
+			tempId = util.getNullBlankCheck(tempId);
 			passwd = util.getNullBlankCheck(passwd);
 			name = util.getNullBlankCheck(name);
 			jumin1 = util.getNullBlankCheck(jumin1);
@@ -224,6 +256,7 @@ public class MemberController extends HttpServlet {
 			
 			int failCounter = 0;
 			if(id.equals("")) { failCounter++; System.out.println("1");}
+			if(tempId.equals("")) { failCounter++; System.out.println("1");}
 			if(!passwd.equals(passwdChk) || passwd.equals("")) { failCounter++; System.out.println("2"); }
 			if(name.equals("")) { failCounter++; System.out.println("3");}
 			if(jumin1.equals("")) { failCounter++; System.out.println("4");}
@@ -237,6 +270,9 @@ public class MemberController extends HttpServlet {
 			if(detailAddress.equals("")) { failCounter++;System.out.println("12"); }
 			if(extraAddress.equals("")) { extraAddress = "-"; }
 			
+			if(!id.equals(tempId)) {
+				failCounter++; //앞단에서 처리했더라도 뒤에서도 처리해줘야함
+			}
 			
 			id = util.getCheckString(id);
 			name = util.getCheckString(name);
@@ -407,7 +443,7 @@ public class MemberController extends HttpServlet {
 				response.sendRedirect(path+"/member_servlet/member_sakje.do?no=" + no + "&" + searchQuery);
 			}
 		} else if(fileName.equals("idCheckWin")) {
-			
+			request.setAttribute("imsiId", "");
 			forwardPage = "/WEB-INF/project/member/idCheckWin.jsp";
 			RequestDispatcher rd = request.getRequestDispatcher(forwardPage);
 			rd.forward(request, response);
@@ -421,16 +457,37 @@ public class MemberController extends HttpServlet {
 			MemberDAO dao = new MemberDAO();
 			int result = dao.getIdCheckWin(arguDto);
 			
+			String imsiId = id;
 			String msg = "사용 가능한 아이디입니다.";
 			if(result > 0) {
+				imsiId = "";
 				msg = "사용 불가능한 아이디입니다.";
 			} 
+			
+			request.setAttribute("imsiId", imsiId);
 			request.setAttribute("id", id);
 			request.setAttribute("msg", msg);
 			
 			forwardPage = "/WEB-INF/project/member/idCheckWin.jsp";
 			RequestDispatcher rd = request.getRequestDispatcher(forwardPage);
 			rd.forward(request, response);
+		} else if(fileName.equals("idCheck")) {
+			String id = request.getParameter("id");
+			id = util.getNullBlankCheck(id);
+			
+			MemberDTO arguDto = new MemberDTO();
+			arguDto.setId(id);
+			
+			MemberDAO dao = new MemberDAO();
+			int result = dao.getIdCheckWin(arguDto);
+			response.setContentType("text/html; charset=utf-8;");
+			PrintWriter out = response.getWriter();
+			out.print(result);
+			out.flush();
+			out.close();
+			return;
+		} else {
+			
 		}
 		
 	

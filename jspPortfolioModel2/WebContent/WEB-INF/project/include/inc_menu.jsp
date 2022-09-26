@@ -1,12 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="../include/inc_header.jsp" %>     
 <table bodder="0" aling="center" width="90%">
 	<tr>
 		<td colspan="5" style="padding: 0px 0px 0px 20px;">
-		   Location : project -> ${folderName } -> ${fileName }
+		   접속 IP : ${ip }
 		</td>
 		<td colspan="4" style="padding: 0px 0px 0px 20px;" align="right">
-		   접속 IP : ${ip }
+		<c:choose>
+		<c:when test="${sessionScope.sessionNo == null || sessionScope.sessionNo == '' || sessionScope.sessionNo == 0 }">
+			<a href="${path}/noLogin_servlet/noLogin_login.do">로그인</a>
+		</c:when>
+		<c:otherwise>
+		${sessionScope.sessionName} 님
+			<a href="${path }/member_servlet/member_sujung.do">회원정보수정</a>
+			<a href="${path }/member_servlet/member_sakje.do">회원탈퇴</a>
+			<a href="${path }/noLogin_servlet/noLogin_logout.do">로그아웃</a>
+		</c:otherwise>
+		</c:choose>
 		</td>
 	</tr>
 	<tr align="center">
@@ -23,7 +34,7 @@
 			<a href="#">방명록</a>
 		</td>
 		<td style="padding: 0px 10px;" id="board">
-			<a href="#">게시판</a>
+			<a href="${path }/board_servlet/board_list.do">게시판</a>
 		</td>
 		<td style="padding: 0px 10px;" id="shopProduct">
 			<a href="#">Mall(상품관리)</a>

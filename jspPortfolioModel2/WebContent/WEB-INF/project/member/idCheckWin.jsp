@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="../include/inc_header.jsp" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,15 +20,20 @@
 			<input type="text" name="id" id="id" value="${id }" style="width: 100px;">
 			<span id="spanMsg">${msg }</span>
 			<br>
-			<input type="text" name="result" id="result" value="${id }" style="width: 100px;">
+			<input type="hidden" name="result" id="result" value="${imsiId }" style="width: 100px;">
 			</td>
 	</tr>
 	<tr>
 		<td colspan="2" align="center" style="height: 50px;">
 			<button type="button" onclick="search();">검색</button>
-			<span id="spanView" style="display: none;">
-				<button type="button" onclick="save();">적용</button>
-			</span>
+			<c:choose>
+			<c:when test="${imsiId == '' }">
+				
+			</c:when>
+			<c:otherwise>
+				<button type="button" onclick="apply();">적용</button>
+			</c:otherwise>
+			</c:choose>
 		</td>
 	</tr>
 </table>
@@ -38,6 +44,13 @@
 		f.action = "${path}/member_servlet/member_idCheckWinProc.do";
 		f.method = "post";
 		f.submit();
+	}
+	function apply(){
+		var id = document.getElementById("result").value;
+		opener.document.getElementById("id").value = id;
+		opener.document.getElementById("tempId").value = id;
+		//opener.document.getElementById("label_id").innerHTML = "<font style='color: red; font-size: 14px;'>hahaha</font>";
+		window.close();
 	}
 </script>
 </body>

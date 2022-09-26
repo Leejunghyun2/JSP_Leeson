@@ -154,6 +154,7 @@
       <Context docBase="jspPortfolioModel1" path="/jspPortfolioModel1" reloadable="true" source="org.eclipse.jst.jee.server:jspPortfolioModel1"/>
       <Context docBase="jspTest" path="/jspTest" reloadable="true" source="org.eclipse.jst.jee.server:jspTest"/>
       <Context docBase="/c:/LJH/attach" path="/jspPortfolioModel1/attach" reloadable="true"/>
+      <Context docBase="/c:/LJH/attach" path="/jspPortfolioModel2/attach" reloadable="true"/>
       
       <Context docBase="hr_1234" path="/hr_1234" reloadable="true" source="org.eclipse.jst.jee.server:hr_1234"/><Context docBase="srv_pg_impl" path="/srv_pg_impl" reloadable="true" source="org.eclipse.jst.jee.server:srv_pg_impl"/><Context docBase="jspStudyModel2" path="/jspStudyModel2" reloadable="true" source="org.eclipse.jst.jee.server:jspStudyModel2"/><Context docBase="jspPortfolioModel2" path="/jspPortfolioModel2" reloadable="true" source="org.eclipse.jst.jee.server:jspPortfolioModel2"/></Host>
       

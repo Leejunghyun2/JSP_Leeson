@@ -7,11 +7,12 @@
 		<tr>
 			<td>아이디</td>
 			<td>
-				<input type="text" name="id">
+				<input type="text" name="id" id="id">
+				<input type="hidden" name="tempId" id="tempId">
 				<button type="button" onclick="idCheck();">아이디찾기</button>
 				<button type="button" onclick="idCheckWin();">아이디찾기(새창)</button>
 				<br>
-				<label id="label_od"></label>
+				<label id="label_id"></label>
 			</td>
 		</tr>
 		<tr>
@@ -91,6 +92,16 @@
 		location.href = '${path }/member_servlet/' + val1 + '?no=' + val2 +"&${searchQuery}";
 	}
 	function save(){
+		var id = document.getElementById("id").value;
+		var tempId = document.getElementById("tempId").value;
+		
+		
+		
+		if(id == '' || tempId == ''  || id != tempId){
+			alert('아이디 찾기를 해주세요..');
+			return;
+		}
+		
 		if(confirm('등록하시겠습니까?')){
 			var f = document.DirForm;
 			f.action = "${path }/member_servlet/member_chugaProc.do";
@@ -99,7 +110,27 @@
 		}
 	}
 	function idCheck(){
-		alert('idCheck');
+		var id = $("#id").val();
+		if(id == ''){
+			$("#label_id").html("아이디를 입력하세요.").css('color','red').css('font-size','10px');
+			$("#id").focus();
+			return;
+		}
+		
+		var param = {"id" : id};
+		
+		$.ajax({
+			type : "post",
+			data : param,
+			url : "${path}/member_servlet/member_idCheck.do",
+			success: function(result){
+				if(result > 0){
+					$("#label_id").html("이미 사용중인 아이디입니다.").css('color','red').css('font-size','10px');
+				} else{
+					$("#label_id").html("사용가능한 아이디입니다.").css('color','blue').css('font-size','10px');
+				}
+			}
+		});
 	}
 	function idCheckWin(){
 		window.open("${path}/member_servlet/member_idCheckWin.do","idCheckWin","width=600, height=210, tollbar=no, menubar=no, scrollbars=no, resizable=yes");

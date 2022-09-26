@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-<%@ include file="../include/inc_header.jsp" %> <%-- JSTL을 사용하기위해 사용 --%>    
+<%@ include file="../include/inc_header.jsp" %> 
+<h2>로그인</h2>
 <form name="loginForm">
-<c:if test="${sessionScope.sessionNo == null || sessionScope.sessionNo == '' || sessionScope.sessionNo == 0 }">
 <table border="1">
 	<tr>
 		<td>아이디</td>
@@ -18,7 +17,6 @@
 		
 	</tr>
 </table>
-</c:if>
 </form>
 <script>
 	function login(){
