@@ -1,7 +1,7 @@
-<%@page import="config.Util"%>
 <%@page import="member.model.dto.MemberDTO"%>
-<%@page import="java.util.ArrayList"%>
 <%@page import="member.model.dao.MemberDAO"%>
+<%@page import="config.Util"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file = "_inc_top.jsp" %>

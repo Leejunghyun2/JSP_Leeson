@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.json.simple.JSONObject"/>
-    <fullyQualifiedTypeName name="shopMall.model.dao.CartDAO"/>
-    <fullyQualifiedTypeName name="shopMall.model.dto.CartDTO"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="org.json.simple.JSONArray"/>
     <fullyQualifiedTypeName name="subBoard.model.dto.SubBoardDTO"/>
     <fullyQualifiedTypeName name="subBoard.model.dto.BoardCommentDTO"/>
     <fullyQualifiedTypeName name="subBoard.model.dto.SubBoardChkDTO"/>
@@ -48,16 +43,21 @@
     <fullyQualifiedTypeName name="project.member.model.dao.MemberDAO"/>
     <fullyQualifiedTypeName name="javax.mail.Session"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
-    <fullyQualifiedTypeName name="java.io.PrintWriter"/>
-    <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="project.common.DB"/>
     <fullyQualifiedTypeName name="board.model.dto.BoardDTO"/>
-    <fullyQualifiedTypeName name="java.sql.Connection"/>
-    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
-    <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
     <fullyQualifiedTypeName name="project.board.model.dao.BoardDAO"/>
     <fullyQualifiedTypeName name="project.board.model.dto.BoardDTO"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="common.DB"/>
+    <fullyQualifiedTypeName name="common.Util"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="java.io.PrintWriter"/>
+    <fullyQualifiedTypeName name="member.model.dao.MemberDAO"/>
+    <fullyQualifiedTypeName name="member.model.dto.MemberDTO"/>
+    <fullyQualifiedTypeName name="DB.DB"/>
 </qualifiedTypeNameHistroy>

@@ -517,3 +517,19 @@
 9월 26, 2022 12:43:55.495 [5688:7876:0926/124355.495:ERROR:interface_endpoint_client.cc(665)] Message 0 rejected by interface blink.mojom.WidgetHost
 9월 26, 2022 12:43:55.495 [5688:7876:0926/124355.495:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
 9월 26, 2022 17:24:30.874 [5688:10744:0926/172430.874:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+
+9월 27, 2022 09:46:17.89 NEW SESSION
+9월 27, 2022 09:46:17.89 [1004:10232:0927/094617.088:ERROR:google_update_settings.cc(236)] Failed opening key Software\Google\Update\ClientStateMedium\{8A69D345-D564-463c-AFF1-A69D9E530F96} to set usagestats; result: 5
+9월 27, 2022 09:46:19.298 [1004:9656:0927/094619.298:ERROR:device_event_log_impl.cc(214)] [09:46:19.297] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+9월 27, 2022 09:46:19.308 [1004:9656:0927/094619.308:ERROR:device_event_log_impl.cc(214)] [09:46:19.307] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+9월 27, 2022 09:47:17.206 [1004:1256:0927/094717.205:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+9월 27, 2022 10:18:15.627 [1004:9656:0927/101815.626:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+9월 27, 2022 10:18:15.627 [1004:9656:0927/101815.626:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+9월 27, 2022 10:18:15.627 [1004:9656:0927/101815.626:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+
+9월 27, 2022 12:08:46.329 NEW SESSION
+9월 27, 2022 12:08:46.329 [11296:11412:0927/120846.328:ERROR:google_update_settings.cc(236)] Failed opening key Software\Google\Update\ClientStateMedium\{8A69D345-D564-463c-AFF1-A69D9E530F96} to set usagestats; result: 5
+9월 27, 2022 12:08:48.437 [11296:3244:0927/120848.437:ERROR:device_event_log_impl.cc(214)] [12:08:48.437] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+9월 27, 2022 12:08:48.439 [11296:3244:0927/120848.439:ERROR:device_event_log_impl.cc(214)] [12:08:48.438] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+9월 27, 2022 12:09:46.419 [11296:11592:0927/120946.419:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+9월 27, 2022 13:46:20.357 [11296:3244:0927/134620.357:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost

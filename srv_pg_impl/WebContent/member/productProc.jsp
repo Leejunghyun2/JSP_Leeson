@@ -1,5 +1,5 @@
-<%@page import="member.model.dao.ProductDAO"%>
-<%@page import="member.model.dto.ProductDTO"%>
+<%@page import="member.model.memberDao.ProductDAO"%>
+<%@page import="member.model.memberDto.ProductDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
