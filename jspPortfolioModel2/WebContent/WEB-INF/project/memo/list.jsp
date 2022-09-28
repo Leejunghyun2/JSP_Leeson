@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <h2>회원관리</h2>
-<%@ include file="../include/inc_header.jsp" %> 
+<%@ include file="../include/inc_header.jsp" %>
+ 
 	<table border="1" width="80%">
 		<tr>
 			<td>순번</td>

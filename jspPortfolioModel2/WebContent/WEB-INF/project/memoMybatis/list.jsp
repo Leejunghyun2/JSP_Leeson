@@ -16,37 +16,34 @@
 	<table border="1" width="80%">
 		<tr>
 			<td>순번</td>
-			<td>아이디</td>
-			<td>비밀번호</td>
-			<td>이름</td>
-			<td>생년월일</td>
-			<td>전화번호</td>
-			<td>가입일</td>
+			<td>작성자</td>
+			<td>메모내용</td>
+			<td>등록일</td>
+			<td></td>
 		</tr>
-		<c:if test="${totalRecord == 0 }">
+		<c:if test="${fn:length(list) == 0 }">
 		<tr>
-			<td colspan="7" style="width: 300px; height: 100px;" align="center">등록된 회원이 없습니다.</td>
+			<td colspan="6" style="width: 300px; height: 100px;">등록된 내용이 없습니다.</td>
 		</tr>
 		</c:if>
-		<c:forEach var="memberDto" items="${list }">
+		<c:forEach var="memo" items="${list }">
 			<tr>
-				<td>${memberDto.no }</td>
-				<td><a href="#" onclick="move('member_view.do','${memberDto.no}')">${memberDto.id }</a></td>
-				<td>${memberDto.passwd }</td>
-				<td>${memberDto.name }</td>
-				<td>${memberDto.jumin1 }-${memberDto.jumin2 }******</td>
-				<td>${memberDto.phone1 }-${memberDto.phone2 }-${memberDto.phone3 }</td>
-				<td>${memberDto.regiDate }</td>
+				<td>${memo.no }</td>
+				<td>${memo.writer }</td>
+				<td>${memo.content }</td>
+				<td>${memo.regiDate }</td>
+				<td>
+					<a href="#" onclick="move('memoMybatis_sujung.do','${memo.no}')">[수정]</a>
+					<a href="#" onclick="move('memoMybatis_sakje.do','${memo.no}')">[삭제]</a>
+				</td>
 			</tr>
 		</c:forEach>
 	</table>
 <div style="border: 0px solid red; padding-top: 20px; width: 80%;" align="right">
 		|
-		<a href="${path }/member_servlet/member_list.do">전체목록</a>
+		<a href="#" onclick="move('memoMybatis_list.do','')">목록</a>
 		|
-		<a href="#" onclick="move('member_list.do','')">목록</a>
-		|
-		<a href="#" onclick="move('member_chuga.do','')">등록</a>
+		<a href="#" onclick="move('memoMybatis_chuga.do','')">등록</a>
 		|
 </div>
 <div style="height:50px; display:flex; justify-content: center; align-items: center; margin: 1rem 0px 1rem 0px">
@@ -54,9 +51,9 @@
       <div style="display:flex; height:30px">
          <select name="searchGubun" id="searchGubun" style="width: 80px; text-overflow:ellipsis; border:0px">
             <option value="" selected >-선택-</option>
-            <option value="id"  <c:if test="${searchGubun == 'id' }">selected</c:if>>아이디</option>
-            <option value="name"  <c:if test="${searchGubun == 'name' }">selected</c:if>>이름</option>
-            <option value="id_name"  <c:if test="${searchGubun == 'id_name' }">selected</c:if> >아이디+이름</option>
+            <option value="writer"  <c:if test="${searchGubun == 'writer' }">selected</c:if>>작성자</option>
+            <option value="content"  <c:if test="${searchGubun == 'content' }">selected</c:if>>내용</option>
+            <option value="writer_content"  <c:if test="${searchGubun == 'writer_content' }">selected</c:if> >작성자+내용</option>
          </select>
          <input type="text"  name="searchData"  id="searchData" value="${searchData }"
          style="border:1px solid lightgrey; border-left:0px; border-right:0px; outline: none" placeholder="입력하세요">
@@ -119,14 +116,14 @@
 </c:if>
 <script>
 	function search() {
-	    searchForm.action="${path}/member_servlet/member_search.do";
-	    searchForm.method="post";
+	    searchForm.action="${path}/memoMybatis_servlet/memoMybatis_search.do";
+	    searchForm.method="post"; 
 	    searchForm.submit();
 	 }
 	function goPage(val1){
-		location.href = '${path }/member_servlet/member_list.do?pageNumber=' + val1 + '&${searchQuery}';
+		location.href = '${path }/memoMybatis_servlet/memoMybatis_list.do?pageNumber=' + val1 + '&${searchQuery}';
 	}
 	function move(val1, val2){
-		location.href = '${path }/member_servlet/' + val1 + '?no=' + val2 +"&${searchQuery}";
+		location.href = '${path }/memoMybatis_servlet/' + val1 + '?no=' + val2 + "&${searchQuery}";
 	}
 </script>
