@@ -33,8 +33,8 @@
 		<td style="padding: 0px 10px;" id="memoMybatis">
 			<a href="${path }/memoMybatis_servlet/memoMybatis_list.do">메모장(Mybatis)</a>
 		</td>
-		<td style="padding: 0px 10px;" id="guestBook">
-			<a href="#">방명록</a>
+		<td style="padding: 0px 10px;" id="guestBookMybatis">
+			<a href="${path }/guestBookMybatis_servlet/guestBookMybatis_list.do">방명록</a>
 		</td>
 		<td style="padding: 0px 10px;" id="board">
 			<a href="${path }/board_servlet/board_list.do">게시판</a>

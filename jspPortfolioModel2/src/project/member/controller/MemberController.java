@@ -55,15 +55,13 @@ public class MemberController extends HttpServlet {
 		String sessionId = sessionArray[1];
 		String sessionName = sessionArray[2];
 		
-		if(sessionNo <= 0 ) { //로그인 안한 상태
-			response.setContentType("text/html; charset=utf-8");
-			PrintWriter out = response.getWriter();
-			out.println("<script>");
-			out.println("alert('로그인 후 이용 해주세요')");
-			out.println("location.href = '" + path + "';");
-			out.println("</script>");
-			return;
-		}
+		/*
+		 * if(sessionNo <= 0 ) { //로그인 안한 상태
+		 * response.setContentType("text/html; charset=utf-8"); PrintWriter out =
+		 * response.getWriter(); out.println("<script>");
+		 * out.println("alert('로그인 후 이용 해주세요')"); out.println("location.href = '" + path
+		 * + "';"); out.println("</script>"); return; }
+		 */
 		
 		
 		
