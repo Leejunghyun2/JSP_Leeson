@@ -156,7 +156,7 @@
       <Context docBase="/c:/LJH/attach" path="/jspPortfolioModel1/attach" reloadable="true"/>
       <Context docBase="/c:/LJH/attach" path="/jspPortfolioModel2/attach" reloadable="true"/>
       
-      <Context docBase="hr_1234" path="/hr_1234" reloadable="true" source="org.eclipse.jst.jee.server:hr_1234"/><Context docBase="jspStudyModel2" path="/jspStudyModel2" reloadable="true" source="org.eclipse.jst.jee.server:jspStudyModel2"/><Context docBase="jspPortfolioModel2" path="/jspPortfolioModel2" reloadable="true" source="org.eclipse.jst.jee.server:jspPortfolioModel2"/><Context docBase="application_test" path="/application_test" reloadable="true" source="org.eclipse.jst.jee.server:application_test"/></Host>
+      <Context docBase="hr_1234" path="/hr_1234" reloadable="true" source="org.eclipse.jst.jee.server:hr_1234"/><Context docBase="jspStudyModel2" path="/jspStudyModel2" reloadable="true" source="org.eclipse.jst.jee.server:jspStudyModel2"/><Context docBase="jspPortfolioModel2" path="/jspPortfolioModel2" reloadable="true" source="org.eclipse.jst.jee.server:jspPortfolioModel2"/><Context docBase="application_test" path="/application_test" reloadable="true" source="org.eclipse.jst.jee.server:application_test"/><Context docBase="apllication_baepo" path="/apllication_baepo" reloadable="true" source="org.eclipse.jst.jee.server:apllication_baepo"/></Host>
       
     </Engine>
   </Service>

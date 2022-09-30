@@ -48,8 +48,8 @@
 		<td style="padding: 0px 10px;" id="shopMall">
 			<a href="#">Mall(쇼핑몰)</a>
 		</td>
-		<td style="padding: 0px 10px;" id="home">
-			<a href="#">Chart</a>
+		<td style="padding: 0px 10px;" id="chart">
+			<a href="{path }/board_servlet/chart_dbChart.do">Chart</a>
 		</td>
 	</tr>
 </table>
