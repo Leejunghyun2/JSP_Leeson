@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.oreilly.servlet.MultipartRequest"/>
-    <fullyQualifiedTypeName name="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"/>
-    <fullyQualifiedTypeName name="java.io.File"/>
-    <fullyQualifiedTypeName name="org.apache.tika.Tika"/>
-    <fullyQualifiedTypeName name="java.util.UUID"/>
-    <fullyQualifiedTypeName name="_common.Util"/>
     <fullyQualifiedTypeName name="java.util.Calendar"/>
     <fullyQualifiedTypeName name="java.util.Enumeration"/>
     <fullyQualifiedTypeName name="java.util.Date"/>
@@ -40,11 +34,9 @@
     <fullyQualifiedTypeName name="common.DB"/>
     <fullyQualifiedTypeName name="common.Util"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
-    <fullyQualifiedTypeName name="java.io.PrintWriter"/>
     <fullyQualifiedTypeName name="member.model.dao.MemberDAO"/>
     <fullyQualifiedTypeName name="member.model.dto.MemberDTO"/>
     <fullyQualifiedTypeName name="DB.DB"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="project.memoMybatis.model.dto.MemoMybatisDTO"/>
     <fullyQualifiedTypeName name="project.memoMybatis.model.dao.MemoMybatisDAO"/>
     <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSessionFactory"/>
@@ -52,12 +44,20 @@
     <fullyQualifiedTypeName name="javax.annotation.Resource"/>
     <fullyQualifiedTypeName name="org.apache.ibatis.io.Resources"/>
     <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSessionFactoryBuilder"/>
-    <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSession"/>
-    <fullyQualifiedTypeName name="java.util.Map"/>
-    <fullyQualifiedTypeName name="java.util.HashMap"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="project._mybatisConfig.MybatisManager"/>
     <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
     <fullyQualifiedTypeName name="project.guestBookMybatis.model.dto.GuestBookMybatisDTO"/>
     <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSession"/>
+    <fullyQualifiedTypeName name="apllication_baepo.sihum._mybatisConfig.MybatisManager"/>
+    <fullyQualifiedTypeName name="java.io.PrintWriter"/>
+    <fullyQualifiedTypeName name="apllication_baepo.sihum.member.model.dto.MemberDTO"/>
+    <fullyQualifiedTypeName name="apllication_baepo.sihum.member.model.dao.MemberDAO"/>
+    <fullyQualifiedTypeName name="sihum.member.model.dao.MemberDAO"/>
+    <fullyQualifiedTypeName name="sihum.member.model.dto.MemberDTO"/>
+    <fullyQualifiedTypeName name="sihum._mybatisConfig.MybatisManager"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>
